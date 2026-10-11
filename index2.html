@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicare — Care that starts with simplicity and trust</title>
+    <meta name="description"
+        content="Medicare connects patients and clinics in one intuitive space - for appointments, messages, and follow-up care.">
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Configuration for Medicare -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        carely: {
+                            coral: '#FF6F59',
+                            'coral-hover': '#FF5A3E',
+                            'coral-dark': '#FF5238',
+                            'coral-light': '#FFEFEA',
+                            blush: '#FFDCD1',
+                            dark: '#121316',
+                            surface: '#FFFFFF',
+                            muted: '#667085',
+                            border: 'rgba(0, 0, 0, 0.06)',
+                        }
+                    },
+                    boxShadow: {
+                        'glow-coral': '0 20px 45px -12px rgba(255, 111, 89, 0.45)',
+                        'float-widget': '0 16px 36px -10px rgba(0, 0, 0, 0.07), 0 2px 6px -1px rgba(0,0,0,0.03)',
+                        'pill-nav': '0 10px 30px -10px rgba(0, 0, 0, 0.06)',
+                    },
+                    animation: {
+                        'float-slow': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 7s ease-in-out 2s infinite',
+                        'pulse-subtle': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Background subtle grid pattern */
+        .bg-subtle-grid {
+            background-size: 52px 52px;
+            background-image:
+                linear-gradient(to right, rgba(255, 111, 89, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 111, 89, 0.05) 1px, transparent 1px);
+        }
+
+        /* Ambient radiant radial glow */
+        .hero-glow {
+            background: radial-gradient(circle at 80% 25%, rgba(255, 150, 128, 0.32) 0%, rgba(255, 218, 206, 0.22) 35%, rgba(255, 245, 242, 0.05) 70%, transparent 100%);
+        }
+
+        .cta-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(255, 150, 128, 0.25) 0%, rgba(255, 230, 222, 0.15) 50%, transparent 80%);
+        }
+
+        /* Hide scrollbar for smooth horizontal tab */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-[#FCFCFC] text-gray-900 font-sans antialiased selection:bg-[#FFDCD1] selection:text-[#FF5238] overflow-x-hidden">
+
+    <!-- ========================================================================= -->
+    <!-- 01. NAVIGATION BAR (FLOATING CAPSULE NAVBAR) -->
+    <!-- ========================================================================= -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-5 transition-all duration-300" id="main-nav">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+            <!-- Brand Logo -->
+            <a href="#"
+                class="text-2xl font-extrabold tracking-tight text-carely-dark flex items-center gap-1.5 focus:outline-none">
+                <span class="tracking-tight text-2xl font-bold">Medicare</span>
+            </a>
+
+            <!-- Central Nav Links (Desktop Floating Pill) -->
+            <nav
+                class="hidden md:flex items-center space-x-7 bg-white/80 backdrop-blur-md px-8 py-2.5 rounded-full border border-gray-200/60 shadow-pill-nav text-[14.5px] font-medium text-gray-600 transition-all hover:bg-white/95">
+                <a href="#hero" class="text-carely-dark font-semibold transition hover:text-carely-coral">Home</a>
+                <a href="#how-it-works" class="hover:text-carely-dark transition">Features</a>
+                <a href="#how-it-works" class="hover:text-carely-dark transition" onclick="switchRole('clinics')">For
+                    clinics</a>
+                <a href="#how-it-works" class="hover:text-carely-dark transition" onclick="switchRole('patients')">For
+                    patients</a>
+                <a href="#pricing" class="hover:text-carely-dark transition">Pricing</a>
+                <a href="#footer" class="hover:text-carely-dark transition">Contact</a>
+            </nav>
+
+            <!-- Right Action Pills -->
+            <div class="hidden md:flex items-center space-x-2.5">
+                <a href="#"
+                    class="px-5 py-2 text-sm font-semibold text-gray-700 hover:text-carely-dark transition rounded-full hover:bg-gray-100/70">
+                    Log in
+                </a>
+                <a href="#pricing"
+                    class="px-6 py-2.5 text-sm font-semibold text-white bg-carely-dark hover:bg-black rounded-full shadow-sm hover:shadow-md transition-all transform active:scale-95">
+                    Sign up
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn"
+                class="md:hidden p-2.5 rounded-full bg-white/90 border border-gray-200 text-gray-700 hover:text-carely-dark focus:outline-none shadow-sm"
+                aria-label="Toggle Navigation Menu">
+                <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden max-w-md mx-auto mt-3 bg-white/95 backdrop-blur-lg rounded-3xl p-6 border border-gray-200 shadow-xl space-y-4">
+            <nav class="flex flex-col space-y-3 font-medium text-gray-700">
+                <a href="#hero" class="hover:text-carely-coral py-1">Home</a>
+                <a href="#how-it-works" class="hover:text-carely-coral py-1">Features</a>
+                <a href="#how-it-works" class="hover:text-carely-coral py-1" onclick="switchRole('clinics')">For
+                    clinics</a>
+                <a href="#how-it-works" class="hover:text-carely-coral py-1" onclick="switchRole('patients')">For
+                    patients</a>
+                <a href="#pricing" class="hover:text-carely-coral py-1">Pricing</a>
+                <a href="#footer" class="hover:text-carely-coral py-1">Contact</a>
+            </nav>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                <a href="#" class="text-sm font-semibold text-gray-700">Log in</a>
+                <a href="#pricing" class="px-5 py-2 text-sm font-semibold text-white bg-carely-dark rounded-full">Sign
+                    up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================================================= -->
+    <!-- 02. HERO SECTION (SIMPLICITY & TRUST + FLOATING WIDGETS) -->
+    <!-- ========================================================================= -->
+    <section id="hero" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-subtle-grid">
+        <!-- Ambient Radial Glow Overlay -->
+        <div class="absolute inset-0 hero-glow pointer-events-none -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+                <!-- Left Column: Copywriting & Actions -->
+                <div class="lg:col-span-6 space-y-8">
+
+                    <!-- Social Proof Cluster Pill -->
+                    <div
+                        class="inline-flex items-center gap-3.5 bg-white/80 backdrop-blur-sm border border-gray-200/70 py-1.5 px-3.5 rounded-full shadow-sm">
+                        <!-- Overlapping Avatars -->
+                        <div class="flex -space-x-2 overflow-hidden">
+                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover"
+                                src="assets/avatar1.jpg" alt="Doctor avatar">
+                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover"
+                                src="assets/avatar2.jpg" alt="User avatar">
+                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover"
+                                src="assets/avatar3.jpg" alt="Patient avatar">
+                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover"
+                                src="assets/patient.jpg" alt="Carely member">
+                        </div>
+                        <!-- Stars & Text -->
+                        <div class="text-xs font-semibold text-gray-800 flex items-center gap-1.5">
+                            <span class="font-bold text-gray-900">4.9/5</span>
+                            <div class="flex text-amber-500">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                            </div>
+                            <span class="text-gray-500 font-medium ml-1">Loved by 100K users</span>
+                        </div>
+                    </div>
+
+                    <!-- Dual CTA Buttons (Top Order as seen in screenshot) -->
+                    <div class="flex flex-wrap items-center gap-3.5">
+                        <a href="#pricing"
+                            class="px-7 py-3 text-sm font-semibold text-white bg-carely-dark hover:bg-black rounded-full shadow-sm hover:shadow-md transition transform active:scale-95">
+                            Get Started
+                        </a>
+                        <a href="#overview"
+                            class="px-6 py-3 text-sm font-semibold text-gray-800 bg-white/90 hover:bg-white rounded-full border border-gray-200/80 shadow-sm hover:shadow transition transform active:scale-95">
+                            Get in touch
+                        </a>
+                    </div>
+
+                    <!-- Subtitle Description -->
+                    <p class="text-gray-600 text-base sm:text-lg max-w-lg leading-relaxed font-normal">
+                        Medicare connects patients and clinics in one intuitive space - for appointments, messages, and
+                        follow-up care.
+                    </p>
+
+                    <!-- Main Hero Headline (H1) -->
+                    <h1
+                        class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-carely-dark tracking-tight leading-[1.12]">
+                        Care that starts with simplicity and trust.
+                    </h1>
+
+                </div>
+
+                <!-- Right Column: Staggered Floating UI Widgets Mockup -->
+                <div class="lg:col-span-6 relative h-[480px] sm:h-[540px] flex items-center justify-center">
+
+                    <!-- Ambient Glow under the widgets -->
+                    <div class="absolute w-80 h-80 bg-[#FF6F59]/25 rounded-full blur-3xl -z-10 animate-pulse-subtle">
+                    </div>
+
+                    <!-- Widget 1: Floating Calendar Icon Squircle (Top Left) -->
+                    <div
+                        class="absolute top-2 left-6 sm:left-12 bg-white/95 p-3 rounded-2xl shadow-float-widget border border-white/80 animate-float-slow">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-[#FFEFEA] flex items-center justify-center text-carely-coral">
+                            <i data-lucide="calendar" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+
+                    <!-- Widget 2: Interactive Mood Tracking (Top Right) -->
+                    <div
+                        class="absolute top-0 right-2 sm:right-6 bg-white/95 backdrop-blur-md p-4 rounded-3xl shadow-float-widget border border-gray-100/80 w-64 animate-float-delayed">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold text-gray-900 tracking-tight">Mood Tracking</span>
+                            <span id="current-mood-label"
+                                class="text-[11px] font-semibold text-carely-coral bg-[#FFEFEA] px-2 py-0.5 rounded-full">Good
+                                😊</span>
+                        </div>
+                        <!-- Interactive Mood Range Slider -->
+                        <input type="range" id="mood-slider" min="1" max="5" value="4"
+                            class="w-full h-1.5 bg-gradient-to-r from-red-400 via-amber-400 to-emerald-400 rounded-lg appearance-none cursor-pointer accent-carely-dark">
+                        <div class="flex justify-between text-[9px] font-semibold text-gray-600 mt-2 px-0.5">
+                            <span>Terrible</span>
+                            <span>Bad</span>
+                            <span>Okay</span>
+                            <span class="text-carely-coral font-bold">Good</span>
+                            <span>Great</span>
+                        </div>
+                    </div>
+
+                    <!-- Widget 3: Metric Pill "1,250 Appointments" (Left Middle) -->
+                    <div
+                        class="absolute top-28 left-0 sm:left-4 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-float-widget border border-gray-100/90 w-44 animate-float-slow">
+                        <div class="text-xl font-extrabold text-carely-dark">1,250</div>
+                        <div class="text-[11px] text-gray-600 font-medium">Appointments</div>
+                        <div class="flex items-center gap-1 text-[10px] font-bold text-emerald-600 mt-1">
+                            <i data-lucide="trending-up" class="w-3 h-3"></i>
+                            <span>↗ 5.8% from last week</span>
+                        </div>
+                    </div>
+
+                    <!-- Widget 4: Glowing Coral Appointment Card 'Anna Cooper' (Pusat Perhatian) -->
+                    <div
+                        class="absolute top-44 left-16 sm:left-24 right-4 sm:right-16 bg-gradient-to-br from-[#FF7A5C] via-[#FF6A53] to-[#FF5238] text-white p-5 rounded-3xl shadow-glow-coral border border-white/20 transform hover:scale-[1.02] transition-all duration-300 z-20">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="font-bold text-base">Anna Cooper</span>
+                                <span
+                                    class="bg-white/25 backdrop-blur-sm text-[11px] font-semibold px-2.5 py-0.5 rounded-full">
+                                    • In 15 min
+                                </span>
+                            </div>
+                            <div
+                                class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 cursor-pointer transition">
+                                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-white/90 font-medium mb-4">Follow-up Consultation</p>
+
+                        <div class="flex items-center justify-between pt-3 border-t border-white/20 text-xs">
+                            <div class="flex items-center gap-1.5 font-medium">
+                                <i data-lucide="clock" class="w-3.5 h-3.5 text-white/80"></i>
+                                <span>10:00 - 11:00</span>
+                            </div>
+                            <div class="flex items-center gap-1.5 font-medium">
+                                <i data-lucide="calendar" class="w-3.5 h-3.5 text-white/80"></i>
+                                <span>January 18</span>
+                            </div>
+                            <div class="w-6 h-6 rounded-lg bg-white/20 flex items-center justify-center">
+                                <i data-lucide="video" class="w-3.5 h-3.5 text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Widget 5: Metric Card "1,002 Call Consultancy" (Bottom Left) -->
+                    <div
+                        class="absolute bottom-2 left-2 sm:left-8 bg-white/95 backdrop-blur-md p-4 rounded-3xl shadow-float-widget border border-gray-100/90 w-44 z-10 animate-float-delayed">
+                        <div class="flex items-center gap-3 mb-1">
+                            <div
+                                class="w-8 h-8 rounded-full bg-[#FFEFEA] flex items-center justify-center text-carely-coral">
+                                <i data-lucide="phone-call" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <div class="text-lg font-extrabold text-carely-dark leading-tight">1,002</div>
+                                <div class="text-[10px] text-gray-600 font-medium">Call Consultancy</div>
+                            </div>
+                        </div>
+                        <div class="text-[10px] font-bold text-emerald-600 mt-1 pl-1">
+                            ↗ 40% from last week
+                        </div>
+                    </div>
+
+                    <!-- Widget 6: Patients Visits Line Chart Preview (Bottom Right) -->
+                    <div
+                        class="absolute bottom-4 right-0 sm:right-6 bg-white/95 backdrop-blur-md p-4 rounded-3xl shadow-float-widget border border-gray-100/90 w-60 z-10 animate-float-slow">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-bold text-gray-900">Patients visits</span>
+                            <div class="flex items-center gap-2 text-[10px] font-semibold text-gray-600">
+                                <span class="flex items-center gap-1"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>Male</span>
+                                <span class="flex items-center gap-1"><span
+                                        class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>Female</span>
+                            </div>
+                        </div>
+                        <!-- Clean SVG Curvature Line Chart -->
+                        <svg class="w-full h-14 overflow-visible" viewBox="0 0 100 40" fill="none">
+                            <!-- Grid subtle lines -->
+                            <line x1="0" y1="10" x2="100" y2="10" stroke="#F1F3F5" stroke-width="0.5" />
+                            <line x1="0" y1="25" x2="100" y2="25" stroke="#F1F3F5" stroke-width="0.5" />
+                            <!-- Male Line (Indigo) -->
+                            <path d="M0 32 Q 25 15, 50 25 T 100 12" fill="none" stroke="#6366F1" stroke-width="2"
+                                stroke-linecap="round" />
+                            <!-- Female Line (Pink) -->
+                            <path d="M0 25 Q 25 35, 50 18 T 100 20" fill="none" stroke="#EC4899" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 03. HOW IT WORKS? (INTERACTIVE ROLE SWITCHER + 3 STEP CARDS) -->
+    <!-- ========================================================================= -->
+    <section id="how-it-works" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+
+            <!-- Section Header with Role Segmented Toggle -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-16">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-carely-dark tracking-tight">How It Works?</h2>
+                    <p class="text-gray-600 text-sm mt-1">A transparent, intuitive setup designed for simplicity.</p>
+                </div>
+
+                <!-- Role Segmented Switcher Pill -->
+                <div class="inline-flex bg-gray-100/90 p-1.5 rounded-full border border-gray-200/60 shadow-inner">
+                    <button id="tab-clinics" onclick="switchRole('clinics')"
+                        class="px-6 py-2 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-carely-coral to-carely-coral-dark shadow-sm transition-all duration-200">
+                        For clinics
+                    </button>
+                    <button id="tab-patients" onclick="switchRole('patients')"
+                        class="px-6 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-600 hover:text-carely-dark transition-all duration-200">
+                        For patients
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3 Staggered Sequential Step Cards -->
+            <div class="space-y-8 max-w-4xl mx-auto">
+
+                <!-- Step 01 -->
+                <div
+                    class="relative bg-gradient-to-r from-gray-50/80 via-white to-gray-50/50 rounded-3xl p-8 border border-gray-200/70 shadow-sm hover:shadow-md transition duration-300 flex flex-col md:flex-row items-center justify-between gap-8 group">
+                    <div class="flex items-start gap-6">
+                        <!-- Giant Number 01 -->
+                        <span
+                            class="text-5xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-900 via-gray-600 to-gray-300 font-mono tracking-tighter">
+                            01
+                        </span>
+                        <div class="space-y-2 max-w-md">
+                            <h3 id="step-1-title" class="text-xl font-bold text-carely-dark">Set up your workflow</h3>
+                            <p id="step-1-desc" class="text-gray-600 text-sm leading-relaxed">
+                                Create your clinic profile, configure schedules, and define how appointments and
+                                follow-ups are handled - all in one setup flow.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Accompanying Floating Preview Mockup Card -->
+                    <div
+                        class="w-full md:w-56 bg-white p-4 rounded-2xl border border-gray-200/80 shadow-float-widget transform group-hover:scale-105 transition duration-300">
+                        <div class="text-[11px] font-bold text-gray-800 mb-1">Create an account</div>
+                        <div class="text-[9px] text-gray-600 mb-2">Create an account to enjoy all the services</div>
+                        <div class="space-y-1.5">
+                            <div class="h-2 bg-gray-100 rounded-full w-full"></div>
+                            <div class="h-2 bg-gray-100 rounded-full w-3/4"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 02 (Highlighted with Coral Accent) -->
+                <div
+                    class="relative bg-gradient-to-r from-gray-50/80 via-white to-gray-50/50 rounded-3xl p-8 border border-gray-200/70 shadow-sm hover:shadow-md transition duration-300 flex flex-col md:flex-row items-center justify-between gap-8 group md:ml-12">
+                    <div class="flex items-start gap-6">
+                        <!-- Giant Number 02 with Coral Glow -->
+                        <span
+                            class="text-5xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-carely-coral to-amber-300 font-mono tracking-tighter">
+                            02
+                        </span>
+                        <div class="space-y-2 max-w-md">
+                            <h3 id="step-2-title" class="text-xl font-bold text-carely-dark">Manage bookings</h3>
+                            <p id="step-2-desc" class="text-gray-600 text-sm leading-relaxed">
+                                Patient appointments come in automatically and appear in a shared dashboard, keeping
+                                your team aligned and schedules up.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Accompanying Floating Preview Mockup Card -->
+                    <div
+                        class="w-full md:w-56 bg-white p-4 rounded-2xl border border-gray-200/80 shadow-float-widget transform group-hover:scale-105 transition duration-300">
+                        <div class="flex items-center justify-between text-[11px] font-bold text-gray-800 mb-2">
+                            <span>Today's Queue</span>
+                            <span class="text-carely-coral">Live</span>
+                        </div>
+                        <div class="flex items-center gap-2 p-1.5 bg-[#FFEFEA] rounded-xl mb-1.5">
+                            <div
+                                class="w-5 h-5 rounded-full bg-carely-coral text-white text-[9px] font-bold flex items-center justify-center">
+                                AC</div>
+                            <span class="text-[10px] font-semibold text-gray-800">Anna C. • In 15m</span>
+                        </div>
+                        <div class="flex items-center gap-2 p-1.5 bg-gray-50 rounded-xl">
+                            <div
+                                class="w-5 h-5 rounded-full bg-gray-400 text-white text-[9px] font-bold flex items-center justify-center">
+                                EW</div>
+                            <span class="text-[10px] font-semibold text-gray-600">Emma W. • 12:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 03 -->
+                <div
+                    class="relative bg-gradient-to-r from-gray-50/80 via-white to-gray-50/50 rounded-3xl p-8 border border-gray-200/70 shadow-sm hover:shadow-md transition duration-300 flex flex-col md:flex-row items-center justify-between gap-8 group md:ml-24">
+                    <div class="flex items-start gap-6">
+                        <!-- Giant Number 03 -->
+                        <span
+                            class="text-5xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-900 via-gray-600 to-gray-300 font-mono tracking-tighter">
+                            03
+                        </span>
+                        <div class="space-y-2 max-w-md">
+                            <h3 id="step-3-title" class="text-xl font-bold text-carely-dark">Stay connected</h3>
+                            <p id="step-3-desc" class="text-gray-600 text-sm leading-relaxed">
+                                Send messages and follow-up instructions directly through Medicare, ensuring patients
+                                stay
+                                informed and supported between visits.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Accompanying Floating Preview Mockup Card -->
+                    <div
+                        class="w-full md:w-56 bg-white p-4 rounded-2xl border border-gray-200/80 shadow-float-widget transform group-hover:scale-105 transition duration-300">
+                        <div class="flex items-center justify-between text-[11px] font-bold text-gray-800 mb-2">
+                            <span>Notifications</span>
+                            <i data-lucide="bell" class="w-3.5 h-3.5 text-carely-coral"></i>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="p-1.5 bg-gray-50 rounded-lg text-[9px] text-gray-700">
+                                <span class="font-bold text-gray-900 block">Lab Test Results</span>
+                                Ready for doctor review
+                            </div>
+                            <div class="p-1.5 bg-gray-50 rounded-lg text-[9px] text-gray-700">
+                                <span class="font-bold text-gray-900 block">Prescription Refill</span>
+                                Approved & sent
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 04. PRODUCT OVERVIEW (5-CARD BENTO GRID SHOWCASE) -->
+    <!-- ========================================================================= -->
+    <section id="overview" class="py-24 bg-[#FAF9F8] relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-carely-dark tracking-tight">Product Overview</h2>
+                <p class="text-gray-600 text-base leading-relaxed">
+                    Medicare connects patients and clinics in one simple, intuitive space. Book appointments, chat with
+                    your clinic, and manage follow-up care — all in one place.
+                </p>
+            </div>
+
+            <!-- Bento Grid (5 Cards Form Factor) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
+
+                <!-- Bento Card 1: High-Res Portrait Card (Left Span 4) -->
+                <div
+                    class="lg:col-span-4 relative rounded-3xl overflow-hidden shadow-float-widget min-h-[420px] group bg-white border border-gray-200/70">
+                    <img src="assets/patient.jpg" alt="Carely satisfied patient"
+                        class="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-500">
+                    <!-- Overlay gradient at bottom -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <!-- Bottom Floating Badge -->
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <div
+                            class="bg-white/95 backdrop-blur-md px-5 py-3 rounded-2xl shadow-lg border border-white/80 flex items-center justify-between">
+                            <div>
+                                <div class="text-xl font-extrabold text-carely-dark">50K+</div>
+                                <div class="text-xs font-semibold text-gray-600">Satisfied Patients</div>
+                            </div>
+                            <div
+                                class="w-9 h-9 rounded-full bg-[#FFEFEA] text-carely-coral flex items-center justify-center">
+                                <i data-lucide="heart" class="w-4 h-4 fill-carely-coral"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bento Card 2: Integrations Card (Middle Top Span 5) -->
+                <div
+                    class="lg:col-span-5 bg-white rounded-3xl p-7 border border-gray-200/70 shadow-float-widget flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <h3 class="text-lg font-bold text-carely-dark mb-1">Integrations</h3>
+                        <p class="text-xs text-gray-600">Seamless integration across everyday tools.</p>
+                    </div>
+                    <!-- 3D App Icon Cluster -->
+                    <div class="my-6 flex items-center justify-center gap-4 py-4">
+                        <!-- Google Meet Pill -->
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-white shadow-float-widget border border-gray-100 flex items-center justify-center p-2.5 hover:-translate-y-1 transition">
+                            <svg class="w-8 h-8" viewBox="0 0 48 48">
+                                <path fill="#4caf50" d="M34,24l10-8v16L34,24z" />
+                                <path fill="#1e88e5"
+                                    d="M34,14v20c0,2.2-1.8,4-4,4H8c-2.2,0-4-1.8-4-4V14c0-2.2,1.8-4,4-4h22C32.2,10,34,11.8,34,14z" />
+                            </svg>
+                        </div>
+                        <!-- Slack Pill -->
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-white shadow-float-widget border border-gray-100 flex items-center justify-center p-2.5 hover:-translate-y-1 transition">
+                            <svg class="w-8 h-8" viewBox="0 0 127 127">
+                                <path
+                                    d="M27.2 80c0 7.3-5.9 13.2-13.2 13.2C6.7 93.2.8 87.3.8 80c0-7.3 5.9-13.2 13.2-13.2h13.2V80zm6.6 0c0-7.3 5.9-13.2 13.2-13.2 7.3 0 13.2 5.9 13.2 13.2v33c0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V80z"
+                                    fill="#E01E5A" />
+                                <path
+                                    d="M47 27.2c-7.3 0-13.2-5.9-13.2-13.2C33.8 6.7 39.7.8 47 .8c7.3 0 13.2 5.9 13.2 13.2v13.2H47zm0 6.6c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H14C6.7 60.2.8 54.3.8 47c0-7.3 5.9-13.2 13.2-13.2H47z"
+                                    fill="#36C5F0" />
+                                <path
+                                    d="M99.8 47c0-7.3 5.9-13.2 13.2-13.2 7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H99.8V47zm-6.6 0c0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V14c0-7.3 5.9-13.2 13.2-13.2 7.3 0 13.2 5.9 13.2 13.2v33z"
+                                    fill="#2EB67D" />
+                                <path
+                                    d="M80 99.8c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V99.8H80zm0-6.6c-7.3 0-13.2-5.9-13.2-13.2 0-7.3 5.9-13.2 13.2-13.2h33c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H80z"
+                                    fill="#ECB22E" />
+                            </svg>
+                        </div>
+                        <!-- Zoom Pill -->
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-white shadow-float-widget border border-gray-100 flex items-center justify-center p-2.5 hover:-translate-y-1 transition">
+                            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="#2D8CFF">
+                                <path
+                                    d="M4.5 7.5A3.5 3.5 0 0 1 8 4h8a3.5 3.5 0 0 1 3.5 3.5v9a3.5 3.5 0 0 1-3.5 3.5H8A3.5 3.5 0 0 1 4.5 16.5v-9zM19 14.25l3.25 2.167A.75.75 0 0 0 23.5 15.8V8.2a.75.75 0 0 0-1.25-.617L19 9.75v4.5z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="text-[11px] text-gray-500 font-medium text-center">Syncs automatically with calendar &
+                        notification channels</div>
+                </div>
+
+                <!-- Bento Card 3: Follow-Up Care Made Easy (Coral Accent - Right Top Span 3) -->
+                <div
+                    class="lg:col-span-3 bg-gradient-to-br from-[#FF7B5C] to-[#FF5238] text-white rounded-3xl p-7 shadow-glow-coral flex flex-col justify-between hover:scale-[1.01] transition">
+                    <div>
+                        <h3 class="text-xl font-extrabold mb-2 leading-tight">Follow-Up Care Made Easy</h3>
+                        <p class="text-xs text-white/80">Proactive reminders so recovery is never left to chance.</p>
+                    </div>
+                    <div class="mt-8">
+                        <a href="#how-it-works"
+                            class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white text-carely-dark text-xs font-bold hover:bg-gray-100 transition shadow">
+                            <span>Learn more</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bento Card 4: Appointments Simplified (Bottom Left Span 5) -->
+                <div
+                    class="lg:col-span-5 bg-white rounded-3xl p-7 border border-gray-200/70 shadow-float-widget flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <h3 class="text-lg font-bold text-carely-dark mb-1">Appointments, Simplified</h3>
+                        <p class="text-xs text-gray-600">Easy scheduling for patients and clinics alike.</p>
+                    </div>
+                    <!-- Mini schedule picker mockup -->
+                    <div class="my-4 bg-gray-50/80 p-3.5 rounded-2xl border border-gray-100">
+                        <div class="flex items-center justify-between text-xs font-bold text-gray-800 mb-2">
+                            <span>Emma Watson</span>
+                            <span
+                                class="text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">Confirmed</span>
+                        </div>
+                        <div class="text-[11px] text-gray-600 mb-2">Reviewing scheduling test results</div>
+                        <div class="flex items-center gap-3 text-[11px] text-gray-600 font-medium">
+                            <span class="flex items-center gap-1"><i data-lucide="clock"
+                                    class="w-3.5 h-3.5 text-gray-400"></i>12:00 - 13:00</span>
+                            <span class="flex items-center gap-1"><i data-lucide="calendar"
+                                    class="w-3.5 h-3.5 text-gray-400"></i>January 18</span>
+                        </div>
+                    </div>
+                    <div class="text-[11px] text-gray-500 font-medium">Automated booking confirmations via SMS and
+                        email.</div>
+                </div>
+
+                <!-- Bento Card 5: Secure Patient Messaging (Bottom Right Span 7) -->
+                <div
+                    class="lg:col-span-7 bg-white rounded-3xl p-7 border border-gray-200/70 shadow-float-widget flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <h3 class="text-lg font-bold text-carely-dark mb-1">Secure Patient Messaging</h3>
+                        <p class="text-xs text-gray-600">Stay connected with clinics through safe, real-time
+                            communication.</p>
+                    </div>
+                    <!-- Chat Thread Preview Mockup -->
+                    <div class="my-4 bg-gray-50/90 p-4 rounded-2xl border border-gray-100/90 space-y-3">
+                        <div class="flex items-start gap-2.5">
+                            <img src="assets/avatar1.jpg" class="w-7 h-7 rounded-full object-cover mt-0.5"
+                                alt="Doctor photo">
+                            <div
+                                class="bg-white p-3 rounded-2xl rounded-tl-sm text-xs text-gray-700 shadow-sm border border-gray-100 max-w-md">
+                                I have a few open slots this week - tomorrow at 10:00 AM or Thursday afternoon. Let me
+                                know what suits you best.
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center justify-between pt-2 border-t border-gray-200/60 text-xs text-gray-400">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="paperclip" class="w-4 h-4 cursor-pointer hover:text-gray-600"></i>
+                                <i data-lucide="image" class="w-4 h-4 cursor-pointer hover:text-gray-600"></i>
+                            </div>
+                            <div
+                                class="w-7 h-7 rounded-full bg-carely-dark text-white flex items-center justify-center cursor-pointer hover:bg-black">
+                                <i data-lucide="arrow-up" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-[11px] text-gray-500 font-medium">HIPAA-compliant end-to-end encrypted messaging.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 05. BANNER CTA: STREAMLINE HEALTHCARE IN ONE PLACE -->
+    <!-- ========================================================================= -->
+    <section class="py-24 relative overflow-hidden bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-8 text-center relative z-10">
+
+            <!-- Ambient Glow Behind CTA -->
+            <div class="absolute inset-0 cta-glow pointer-events-none -z-10"></div>
+
+            <div class="space-y-6 max-w-2xl mx-auto">
+                <h2
+                    class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-carely-dark tracking-tight leading-tight">
+                    Streamline Healthcare in One Place
+                </h2>
+                <p class="text-gray-600 text-base sm:text-lg leading-relaxed">
+                    Join patients and clinics on a single intuitive platform for appointments, messaging, and
+                    follow-ups, ensuring seamless communication.
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-3.5 pt-2">
+                    <a href="#pricing"
+                        class="px-7 py-3 text-sm font-semibold text-white bg-carely-dark hover:bg-black rounded-full shadow-sm hover:shadow-md transition transform active:scale-95">
+                        Get Started
+                    </a>
+                    <a href="#footer"
+                        class="px-6 py-3 text-sm font-semibold text-gray-800 bg-white/90 hover:bg-white rounded-full border border-gray-200/80 shadow-sm hover:shadow transition transform active:scale-95">
+                        Get in touch
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 06. PRICING SECTION -->
+    <!-- ========================================================================= -->
+    <section id="pricing" class="py-24 bg-[#FAF9F8] relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-16">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-carely-dark tracking-tight">Pricing</h2>
+                    <p class="text-gray-600 text-sm mt-1">Flexible plans built to grow with your practice.</p>
+                </div>
+                <div class="text-xs text-gray-600 font-medium max-w-xs text-left md:text-right">
+                    No credit card required — get full access and try all features today. Explore at your own pace.
+                </div>
+            </div>
+
+            <!-- 3 Tier Pricing Cards Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+
+                <!-- Tier 1: Basic (Free) -->
+                <div
+                    class="bg-white rounded-3xl p-8 border border-gray-200/70 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                    <div>
+                        <div
+                            class="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-xs font-bold rounded-full mb-4">
+                            Basic
+                        </div>
+                        <div class="text-4xl font-black text-carely-dark mb-1">Free</div>
+                        <p class="text-xs text-gray-600 mb-6 font-medium">Essential tools to start</p>
+
+                        <ul class="space-y-3.5 text-xs text-gray-700 font-medium">
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+                                <span>Book appointments</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+                                <span>Personal reminders</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+                                <span>Basic message history</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-8">
+                        <a href="#"
+                            class="block w-full text-center py-3 rounded-full text-xs font-bold text-gray-800 bg-gray-100 hover:bg-gray-200 transition">
+                            Get started
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tier 2: Plus ($249/mon) — KARTU UNGGULAN ORANYE CORAL -->
+                <div
+                    class="bg-gradient-to-b from-[#FF7A5C] via-[#FF6951] to-[#FF5238] text-white rounded-3xl p-8 shadow-glow-coral flex flex-col justify-between transform lg:-translate-y-2 hover:scale-[1.02] transition duration-300">
+                    <div>
+                        <div
+                            class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold rounded-full mb-4">
+                            Plus
+                        </div>
+                        <div class="flex items-baseline gap-1 mb-1">
+                            <span class="text-4xl font-black">$249</span>
+                            <span class="text-sm font-semibold text-white/80">/mon</span>
+                        </div>
+                        <p class="text-xs text-white/80 mb-6 font-medium">For regular clinics and practices</p>
+
+                        <ul class="space-y-3.5 text-xs text-white font-medium">
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-white"></i>
+                                <span>All Basic features</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-white"></i>
+                                <span>Unlimited bookings</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-white"></i>
+                                <span>Instant follow-up care alerts</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-white"></i>
+                                <span>Priority customer support</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-8">
+                        <a href="#"
+                            class="block w-full text-center py-3 rounded-full text-xs font-bold text-carely-dark bg-white hover:bg-gray-100 transition shadow">
+                            Get started
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tier 3: Professional ($149/mon) -->
+                <div
+                    class="bg-white rounded-3xl p-8 border border-gray-200/70 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                    <div>
+                        <div
+                            class="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-xs font-bold rounded-full mb-4">
+                            Professional
+                        </div>
+                        <div class="flex items-baseline gap-1 mb-1">
+                            <span class="text-4xl font-black text-carely-dark">$149</span>
+                            <span class="text-sm font-semibold text-gray-600">/mon</span>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-6 font-medium">Advanced insights and multi-doctor tools</p>
+
+                        <ul class="space-y-3.5 text-xs text-gray-700 font-medium">
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+                                <span>Includes Plus features</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+                                <span>Team management for doctors</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+                                <span>Analytics & reporting dashboard</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+                                <span>24/7 dedicated support</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-8">
+                        <a href="#"
+                            class="block w-full text-center py-3 rounded-full text-xs font-bold text-white bg-carely-dark hover:bg-black transition shadow-sm">
+                            Get started
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 07. FOOTER SECTION -->
+    <!-- ========================================================================= -->
+    <footer id="footer" class="bg-white border-t border-gray-200/60 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+
+            <!-- Top Row: Newsletter + Link Columns -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-gray-100">
+
+                <!-- Brand & Newsletter (Span 5) -->
+                <div class="lg:col-span-5 space-y-4">
+                    <a href="#" class="text-2xl font-black tracking-tight text-carely-dark">Medicare</a>
+                    <p class="text-xs font-medium text-gray-600">Sign up to receive health tips</p>
+
+                    <!-- Newsletter Pill Input -->
+                    <form
+                        class="flex items-center max-w-sm bg-gray-50 border border-gray-200 rounded-full p-1.5 focus-within:ring-2 focus-within:ring-carely-coral/40"
+                        onsubmit="event.preventDefault(); alert('Terima kasih telah berlangganan newsletter Carely!');">
+                        <input type="email" placeholder="Enter your email" required
+                            class="w-full bg-transparent px-3 text-xs text-gray-800 placeholder-gray-400 focus:outline-none">
+                        <button type="submit"
+                            class="px-5 py-2 text-xs font-bold text-white bg-carely-dark hover:bg-black rounded-full transition shrink-0">
+                            Sign up
+                        </button>
+                    </form>
+                    <p class="text-[11px] text-gray-600">Get respect your privacy and never spam you.</p>
+                </div>
+
+                <!-- 4-Column Nav Links (Span 7) -->
+                <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-8 text-xs font-medium">
+                    <!-- Column: Product -->
+                    <div class="space-y-3">
+                        <div class="font-bold text-gray-900 text-[13px]">Product</div>
+                        <ul class="space-y-2 text-gray-500">
+                            <li><a href="#how-it-works" class="hover:text-carely-dark transition">Features</a></li>
+                            <li><a href="#pricing" class="hover:text-carely-dark transition">Pricing</a></li>
+                            <li><a href="#overview" class="hover:text-carely-dark transition">Integrations</a></li>
+                            <li><a href="#" class="hover:text-carely-dark transition">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <!-- Column: Support -->
+                    <div class="space-y-3">
+                        <div class="font-bold text-gray-900 text-[13px]">Support</div>
+                        <ul class="space-y-2 text-gray-500">
+                            <li><a href="#" class="hover:text-carely-dark transition">Help Center</a></li>
+                            <li><a href="#" class="hover:text-carely-dark transition">Terms of Service</a></li>
+                            <li><a href="#" class="hover:text-carely-dark transition">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <!-- Column: Connect -->
+                    <div class="space-y-3">
+                        <div class="font-bold text-gray-900 text-[13px]">Connect</div>
+                        <ul class="space-y-2 text-gray-500">
+                            <li><a href="#" class="hover:text-carely-dark transition">Newsletter</a></li>
+                            <li><a href="#" class="hover:text-carely-dark transition">Social Media</a></li>
+                            <li><a href="#" class="hover:text-carely-dark transition">Request a Demo</a></li>
+                        </ul>
+                    </div>
+                    <!-- Column: Company -->
+                    <div class="space-y-3">
+                        <div class="font-bold text-gray-900 text-[13px]">Company</div>
+                        <ul class="space-y-2 text-gray-500">
+                            <li><a href="#" class="hover:text-carely-dark transition">About Us</a></li>
+                            <li><a href="#" class="hover:text-carely-dark transition">Careers</a></li>
+                            <li><a href="#" class="hover:text-carely-dark transition">Blog / News</a></li>
+                            <li><a href="#" class="hover:text-carely-dark transition">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Bar: Copyright & Note -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-600 gap-4">
+                <div>© 2026 Medicare, Inc. All rights reserved. Built for Semester 1 Web Design Project.</div>
+                <div class="flex items-center space-x-5">
+                    <a href="#" class="hover:text-gray-900 transition">Privacy</a>
+                    <a href="#" class="hover:text-gray-900 transition">Terms</a>
+                    <a href="#" class="hover:text-gray-900 transition">Cookies</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- 08. VANILLA JAVASCRIPT (ZERO-DEPENDENCY INTERACTION SCRIPT) -->
+    <!-- ========================================================================= -->
+    <script>
+        // 1. Inisialisasi Ikon Lucide
+        document.addEventListener("DOMContentLoaded", () => {
+            lucide.createIcons();
+        });
+
+        // 2. Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // 3. Interactive Mood Tracking Slider
+        const moodSlider = document.getElementById('mood-slider');
+        const moodLabel = document.getElementById('current-mood-label');
+        const moodData = {
+            1: { label: 'Terrible 😣', class: 'bg-red-50 text-red-600' },
+            2: { label: 'Bad 🙁', class: 'bg-orange-50 text-orange-600' },
+            3: { label: 'Okay 😐', class: 'bg-amber-50 text-amber-600' },
+            4: { label: 'Good 😊', class: 'bg-[#FFEFEA] text-carely-coral' },
+            5: { label: 'Great 🤩', class: 'bg-emerald-50 text-emerald-600' }
+        };
+
+        if (moodSlider && moodLabel) {
+            moodSlider.addEventListener('input', (e) => {
+                const val = e.target.value;
+                const current = moodData[val];
+                moodLabel.textContent = current.label;
+                moodLabel.className = `text-[11px] font-semibold px-2 py-0.5 rounded-full ${current.class}`;
+            });
+        }
+
+        // 4. Role Toggle Switcher ("For clinics" vs "For patients")
+        const roleContent = {
+            clinics: {
+                step1: {
+                    title: "Set up your workflow",
+                    desc: "Create your clinic profile, configure schedules, and define how appointments and follow-ups are handled - all in one setup flow."
+                },
+                step2: {
+                    title: "Manage bookings",
+                    desc: "Patient appointments come in automatically and appear in a shared dashboard, keeping your team aligned and schedules up."
+                },
+                step3: {
+                    title: "Stay connected",
+                    desc: "Send messages and follow-up instructions directly through Carely, ensuring patients stay informed and supported between visits."
+                }
+            },
+            patients: {
+                step1: {
+                    title: "Find your doctor & care",
+                    desc: "Browse trusted clinics and specialists, compare reviews, and choose a verified practitioner that fits your health needs."
+                },
+                step2: {
+                    title: "Book your slot in seconds",
+                    desc: "Select available consultation hours directly from your phone without phone queues or paperwork delays."
+                },
+                step3: {
+                    title: "Follow-up & mood tracking",
+                    desc: "Chat securely with your doctor, receive electronic prescriptions, and track your daily recovery in one tap."
+                }
+            }
+        };
+
+        function switchRole(role) {
+            const btnClinics = document.getElementById('tab-clinics');
+            const btnPatients = document.getElementById('tab-patients');
+            const s1Title = document.getElementById('step-1-title');
+            const s1Desc = document.getElementById('step-1-desc');
+            const s2Title = document.getElementById('step-2-title');
+            const s2Desc = document.getElementById('step-2-desc');
+            const s3Title = document.getElementById('step-3-title');
+            const s3Desc = document.getElementById('step-3-desc');
+
+            if (!btnClinics || !btnPatients) return;
+
+            if (role === 'clinics') {
+                btnClinics.className = "px-6 py-2 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-carely-coral to-carely-coral-dark shadow-sm transition-all duration-200";
+                btnPatients.className = "px-6 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-500 hover:text-carely-dark transition-all duration-200";
+            } else {
+                btnPatients.className = "px-6 py-2 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-carely-coral to-carely-coral-dark shadow-sm transition-all duration-200";
+                btnClinics.className = "px-6 py-2 rounded-full text-xs sm:text-sm font-semibold text-gray-500 hover:text-carely-dark transition-all duration-200";
+            }
+
+            // Update text with soft fade animation
+            const content = roleContent[role];
+            [s1Title, s1Desc, s2Title, s2Desc, s3Title, s3Desc].forEach(el => {
+                if (el) el.style.opacity = '0.3';
+            });
+
+            setTimeout(() => {
+                if (s1Title) s1Title.textContent = content.step1.title;
+                if (s1Desc) s1Desc.textContent = content.step1.desc;
+                if (s2Title) s2Title.textContent = content.step2.title;
+                if (s2Desc) s2Desc.textContent = content.step2.desc;
+                if (s3Title) s3Title.textContent = content.step3.title;
+                if (s3Desc) s3Desc.textContent = content.step3.desc;
+
+                [s1Title, s1Desc, s2Title, s2Desc, s3Title, s3Desc].forEach(el => {
+                    if (el) el.style.opacity = '1';
+                });
+            }, 150);
+        }
+    </script>
+</body>
+
+</html>

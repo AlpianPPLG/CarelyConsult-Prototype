@@ -1,0 +1,1 @@
+bentuknya mirip laporan makalah yang merangkum tujuan proyek, masalah yang mau diselesaikan, hingga siapa saja orang-orang di dalam tim yang bertanggung jawab di bagian tertentu (seperti siapa yang mendesain, siapa yang membuat kode programnya, dan siapa yang mengecek kualitasnya).
