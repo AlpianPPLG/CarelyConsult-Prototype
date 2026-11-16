@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medicare — Care that starts with simplicity and trust</title>
+    <title>Medicare Consult — Care that starts with simplicity and trust</title>
     <meta name="description"
         content="Medicare connects patients and clinics in one intuitive space - for appointments, messages, and follow-up care.">
 
@@ -30,19 +30,19 @@
                     },
                     colors: {
                         carely: {
-                            coral: '#FF6F59',
-                            'coral-hover': '#FF5A3E',
-                            'coral-dark': '#FF5238',
-                            'coral-light': '#FFEFEA',
-                            blush: '#FFDCD1',
-                            dark: '#121316',
+                            coral: '#0D6E65', primary: '#0D6E65',
+                            'coral-hover': '#09544D', 'primary-hover': '#09544D',
+                            'coral-dark': '#063D38', 'primary-dark': '#063D38',
+                            'coral-light': '#E8F4F2', 'primary-light': '#E8F4F2',
+                            blush: '#D1ECE6', mint: '#D1ECE6',
+                            dark: '#112320',
                             surface: '#FFFFFF',
-                            muted: '#667085',
-                            border: 'rgba(0, 0, 0, 0.06)',
+                            muted: '#5A6B67',
+                            border: 'rgba(13, 110, 101, 0.08)',
                         }
                     },
                     boxShadow: {
-                        'glow-coral': '0 20px 45px -12px rgba(255, 111, 89, 0.45)',
+                        'glow-coral': '0 20px 45px -12px rgba(13, 110, 101, 0.35)', 'glow-green': '0 20px 45px -12px rgba(13, 110, 101, 0.35)',
                         'float-widget': '0 16px 36px -10px rgba(0, 0, 0, 0.07), 0 2px 6px -1px rgba(0,0,0,0.03)',
                         'pill-nav': '0 10px 30px -10px rgba(0, 0, 0, 0.06)',
                     },
@@ -67,17 +67,17 @@
         .bg-subtle-grid {
             background-size: 52px 52px;
             background-image:
-                linear-gradient(to right, rgba(255, 111, 89, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 111, 89, 0.05) 1px, transparent 1px);
+                linear-gradient(to right, rgba(13, 110, 101, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(13, 110, 101, 0.04) 1px, transparent 1px);
         }
 
         /* Ambient radiant radial glow */
         .hero-glow {
-            background: radial-gradient(circle at 80% 25%, rgba(255, 150, 128, 0.32) 0%, rgba(255, 218, 206, 0.22) 35%, rgba(255, 245, 242, 0.05) 70%, transparent 100%);
+            background: radial-gradient(circle at 80% 25%, rgba(13, 110, 101, 0.16) 0%, rgba(209, 236, 230, 0.28) 35%, rgba(251, 253, 252, 0.05) 70%, transparent 100%);
         }
 
         .cta-glow {
-            background: radial-gradient(circle at 50% 50%, rgba(255, 150, 128, 0.25) 0%, rgba(255, 230, 222, 0.15) 50%, transparent 80%);
+            background: radial-gradient(circle at 50% 50%, rgba(13, 110, 101, 0.14) 0%, rgba(209, 236, 230, 0.2) 50%, transparent 80%);
         }
 
         /* Hide scrollbar for smooth horizontal tab */
@@ -93,7 +93,7 @@
 </head>
 
 <body
-    class="bg-[#FCFCFC] text-gray-900 font-sans antialiased selection:bg-[#FFDCD1] selection:text-[#FF5238] overflow-x-hidden">
+    class="bg-[#FCFCFC] text-gray-900 font-sans antialiased selection:bg-[#D1ECE6] selection:text-[#0D6E65] overflow-x-hidden">
 
     <!-- ========================================================================= -->
     <!-- 01. NAVIGATION BAR (FLOATING CAPSULE NAVBAR) -->
@@ -127,7 +127,7 @@
                     Log in
                 </a>
                 <a href="#pricing"
-                    class="px-6 py-2.5 text-sm font-semibold text-white bg-carely-dark hover:bg-black rounded-full shadow-sm hover:shadow-md transition-all transform active:scale-95">
+                    class="px-6 py-2.5 text-sm font-semibold text-white bg-[#0D6E65] hover:bg-[#09544D] rounded-full shadow-sm hover:shadow-md transition-all transform active:scale-95">
                     Sign up
                 </a>
             </div>
@@ -156,7 +156,7 @@
             </nav>
             <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
                 <a href="login.html" class="text-sm font-semibold text-gray-700 hover:text-carely-coral">Log in</a>
-                <a href="#pricing" class="px-5 py-2 text-sm font-semibold text-white bg-carely-dark rounded-full">Sign
+                <a href="#pricing" class="px-5 py-2 text-sm font-semibold text-white bg-[#0D6E65] hover:bg-[#09544D] rounded-full">Sign
                     up</a>
             </div>
         </div>
@@ -233,14 +233,14 @@
                 <div class="lg:col-span-6 relative h-[480px] sm:h-[540px] flex items-center justify-center">
 
                     <!-- Ambient Glow under the widgets -->
-                    <div class="absolute w-80 h-80 bg-[#FF6F59]/25 rounded-full blur-3xl -z-10 animate-pulse-subtle">
+                    <div class="absolute w-80 h-80 bg-[#0D6E65]/20 rounded-full blur-3xl -z-10 animate-pulse-subtle">
                     </div>
 
                     <!-- Widget 1: Floating Calendar Icon Squircle (Top Left) -->
                     <div
                         class="absolute top-2 left-6 sm:left-12 bg-white/95 p-3 rounded-2xl shadow-float-widget border border-white/80 animate-float-slow">
                         <div
-                            class="w-10 h-10 rounded-xl bg-[#FFEFEA] flex items-center justify-center text-carely-coral">
+                            class="w-10 h-10 rounded-xl bg-[#E8F4F2] flex items-center justify-center text-carely-coral">
                             <i data-lucide="calendar" class="w-5 h-5"></i>
                         </div>
                     </div>
@@ -251,7 +251,7 @@
                         <div class="flex items-center justify-between mb-3">
                             <span class="text-xs font-bold text-gray-900 tracking-tight">Mood Tracking</span>
                             <span id="current-mood-label"
-                                class="text-[11px] font-semibold text-carely-coral bg-[#FFEFEA] px-2 py-0.5 rounded-full">Good
+                                class="text-[11px] font-semibold text-carely-coral bg-[#E8F4F2] px-2 py-0.5 rounded-full">Good
                                 😊</span>
                         </div>
                         <!-- Interactive Mood Range Slider -->
@@ -279,7 +279,7 @@
 
                     <!-- Widget 4: Glowing Coral Appointment Card 'Anna Cooper' (Pusat Perhatian) -->
                     <div
-                        class="absolute top-44 left-16 sm:left-24 right-4 sm:right-16 bg-gradient-to-br from-[#FF7A5C] via-[#FF6A53] to-[#FF5238] text-white p-5 rounded-3xl shadow-glow-coral border border-white/20 transform hover:scale-[1.02] transition-all duration-300 z-20">
+                        class="absolute top-44 left-16 sm:left-24 right-4 sm:right-16 bg-gradient-to-br from-[#0D6E65] via-[#0E7A70] to-[#085049] text-white p-5 rounded-3xl shadow-glow-coral border border-white/20 transform hover:scale-[1.02] transition-all duration-300 z-20">
                         <div class="flex items-center justify-between mb-2">
                             <div class="flex items-center gap-2">
                                 <span class="font-bold text-base">Anna Cooper</span>
@@ -316,7 +316,7 @@
                         class="absolute bottom-2 left-2 sm:left-8 bg-white/95 backdrop-blur-md p-4 rounded-3xl shadow-float-widget border border-gray-100/90 w-44 z-10 animate-float-delayed">
                         <div class="flex items-center gap-3 mb-1">
                             <div
-                                class="w-8 h-8 rounded-full bg-[#FFEFEA] flex items-center justify-center text-carely-coral">
+                                class="w-8 h-8 rounded-full bg-[#E8F4F2] flex items-center justify-center text-carely-coral">
                                 <i data-lucide="phone-call" class="w-4 h-4"></i>
                             </div>
                             <div>
@@ -425,7 +425,7 @@
                     <div class="flex items-start gap-6">
                         <!-- Giant Number 02 with Coral Glow -->
                         <span
-                            class="text-5xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-carely-coral to-amber-300 font-mono tracking-tighter">
+                            class="text-5xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-[#0D6E65] to-teal-400 font-mono tracking-tighter">
                             02
                         </span>
                         <div class="space-y-2 max-w-md">
@@ -443,7 +443,7 @@
                             <span>Today's Queue</span>
                             <span class="text-carely-coral">Live</span>
                         </div>
-                        <div class="flex items-center gap-2 p-1.5 bg-[#FFEFEA] rounded-xl mb-1.5">
+                        <div class="flex items-center gap-2 p-1.5 bg-[#E8F4F2] rounded-xl mb-1.5">
                             <div
                                 class="w-5 h-5 rounded-full bg-carely-coral text-white text-[9px] font-bold flex items-center justify-center">
                                 AC</div>
@@ -535,7 +535,7 @@
                                 <div class="text-xs font-semibold text-gray-600">Satisfied Patients</div>
                             </div>
                             <div
-                                class="w-9 h-9 rounded-full bg-[#FFEFEA] text-carely-coral flex items-center justify-center">
+                                class="w-9 h-9 rounded-full bg-[#E8F4F2] text-carely-coral flex items-center justify-center">
                                 <i data-lucide="heart" class="w-4 h-4 fill-carely-coral"></i>
                             </div>
                         </div>
@@ -593,7 +593,7 @@
 
                 <!-- Bento Card 3: Follow-Up Care Made Easy (Coral Accent - Right Top Span 3) -->
                 <div
-                    class="lg:col-span-3 bg-gradient-to-br from-[#FF7B5C] to-[#FF5238] text-white rounded-3xl p-7 shadow-glow-coral flex flex-col justify-between hover:scale-[1.01] transition">
+                    class="lg:col-span-3 bg-gradient-to-br from-[#0D6E65] to-[#085049] text-white rounded-3xl p-7 shadow-glow-coral flex flex-col justify-between hover:scale-[1.01] transition">
                     <div>
                         <h3 class="text-xl font-extrabold mb-2 leading-tight">Follow-Up Care Made Easy</h3>
                         <p class="text-xs text-white/80">Proactive reminders so recovery is never left to chance.</p>
@@ -763,7 +763,7 @@
 
                 <!-- Tier 2: Plus ($249/mon) — KARTU UNGGULAN ORANYE CORAL -->
                 <div
-                    class="bg-gradient-to-b from-[#FF7A5C] via-[#FF6951] to-[#FF5238] text-white rounded-3xl p-8 shadow-glow-coral flex flex-col justify-between transform lg:-translate-y-2 hover:scale-[1.02] transition duration-300">
+                    class="bg-gradient-to-b from-[#0D6E65] via-[#0E7A70] to-[#085049] text-white rounded-3xl p-8 shadow-glow-coral flex flex-col justify-between transform lg:-translate-y-2 hover:scale-[1.02] transition duration-300">
                     <div>
                         <div
                             class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold rounded-full mb-4">
@@ -960,7 +960,7 @@
             1: { label: 'Terrible 😣', class: 'bg-red-50 text-red-600' },
             2: { label: 'Bad 🙁', class: 'bg-orange-50 text-orange-600' },
             3: { label: 'Okay 😐', class: 'bg-amber-50 text-amber-600' },
-            4: { label: 'Good 😊', class: 'bg-[#FFEFEA] text-carely-coral' },
+            4: { label: 'Good 😊', class: 'bg-[#E8F4F2] text-carely-coral' },
             5: { label: 'Great 🤩', class: 'bg-emerald-50 text-emerald-600' }
         };
 

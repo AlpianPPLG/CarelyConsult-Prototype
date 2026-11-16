@@ -1,59 +1,59 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" style="background-color: #FCFCFC; font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" style="background-color: #FCFDFC; font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
   <defs>
     <!-- Background Grid Pattern -->
     <pattern id="grid-pattern" width="52" height="52" patternUnits="userSpaceOnUse">
-      <path d="M 52 0 L 0 0 0 52" fill="none" stroke="#FF6F59" stroke-width="1" stroke-opacity="0.06"/>
+      <path d="M 52 0 L 0 0 0 52" fill="none" stroke="#0D6E65" stroke-width="1" stroke-opacity="0.05"/>
     </pattern>
 
     <!-- Radiant Hero Glows -->
     <radialGradient id="glow-right" cx="75%" cy="30%" r="60%">
-      <stop offset="0%" stop-color="#FF9680" stop-opacity="0.35"/>
-      <stop offset="40%" stop-color="#FFDCD1" stop-opacity="0.22"/>
-      <stop offset="75%" stop-color="#FFF5F2" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#FCFCFC" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#0D6E65" stop-opacity="0.22"/>
+      <stop offset="40%" stop-color="#D1ECE6" stop-opacity="0.28"/>
+      <stop offset="75%" stop-color="#F5FAF9" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#FCFDFC" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="glow-left" cx="20%" cy="80%" r="45%">
-      <stop offset="0%" stop-color="#FFEFEA" stop-opacity="0.45"/>
-      <stop offset="60%" stop-color="#FCFCFC" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#E8F4F2" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#FCFDFC" stop-opacity="0"/>
     </radialGradient>
 
-    <!-- Coral Button & Accent Gradient -->
-    <linearGradient id="coral-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF7A65"/>
-      <stop offset="100%" stop-color="#FF5238"/>
+    <!-- Deep Forest Green Button & Accent Gradient -->
+    <linearGradient id="primary-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E776E"/>
+      <stop offset="100%" stop-color="#09544D"/>
     </linearGradient>
 
-    <linearGradient id="card-orange-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF7560"/>
-      <stop offset="100%" stop-color="#FF5238"/>
+    <linearGradient id="card-green-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D6E65"/>
+      <stop offset="50%" stop-color="#0E7A70"/>
+      <stop offset="100%" stop-color="#085049"/>
     </linearGradient>
 
     <!-- Mood Bar Gradient -->
     <linearGradient id="mood-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#93C5FD"/>
-      <stop offset="40%" stop-color="#FCD34D"/>
-      <stop offset="75%" stop-color="#FB923C"/>
-      <stop offset="100%" stop-color="#34D399"/>
+      <stop offset="0%" stop-color="#A7F3D0"/>
+      <stop offset="50%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#0D6E65"/>
     </linearGradient>
 
     <!-- Soft Drop Shadows -->
     <filter id="shadow-card" x="-10%" y="-10%" width="125%" height="125%">
-      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.06"/>
-      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#000000" flood-opacity="0.03"/>
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#0D6E65" flood-opacity="0.06"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#000000" flood-opacity="0.02"/>
     </filter>
 
-    <filter id="shadow-coral" x="-15%" y="-15%" width="130%" height="130%">
-      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#FF6F59" flood-opacity="0.42"/>
+    <filter id="shadow-green" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#0D6E65" flood-opacity="0.32"/>
     </filter>
 
     <filter id="shadow-pill" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="8" stdDeviation="15" flood-color="#000000" flood-opacity="0.05"/>
+      <feDropShadow dx="0" dy="8" stdDeviation="15" flood-color="#0D6E65" flood-opacity="0.04"/>
     </filter>
   </defs>
 
   <!-- ================= 01. BACKGROUND LAYERS ================= -->
   <g id="Background">
-    <rect width="1920" height="1080" fill="#FCFCFC"/>
+    <rect width="1920" height="1080" fill="#FCFDFC"/>
     <rect width="1920" height="1080" fill="url(#grid-pattern)"/>
     <rect width="1920" height="1080" fill="url(#glow-right)"/>
     <rect width="1920" height="1080" fill="url(#glow-left)"/>
@@ -61,26 +61,27 @@
 
   <!-- ================= 02. FLOATING HEADER / NAVBAR ================= -->
   <g id="Header-Navbar" transform="translate(160, 40)">
-    <!-- Logo -->
-    <g id="Brand-Logo" transform="translate(0, 12)">
-      <text x="0" y="24" font-size="28" font-weight="800" fill="#121316" letter-spacing="-0.5">Medicare</text>
-      <circle cx="132" cy="12" r="4" fill="#FF6F59"/>
+    <!-- Brand Logo: [+] Medicare Consult -->
+    <g id="Brand-Logo" transform="translate(0, 10)">
+      <rect x="0" y="2" width="36" height="36" rx="10" fill="#0D6E65"/>
+      <text x="18" y="27" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">+</text>
+      <text x="48" y="28" font-size="26" font-weight="800" fill="#112320" letter-spacing="-0.5">Medicare Consult</text>
     </g>
 
     <!-- Center Navigation Pill -->
-    <g id="Center-Nav-Pill" transform="translate(480, 0)" filter="url(#shadow-pill)">
-      <rect width="520" height="52" rx="26" fill="#FFFFFF" fill-opacity="0.9" stroke="#000000" stroke-opacity="0.07" stroke-width="1"/>
-      <text x="45" y="32" font-size="14" font-weight="600" fill="#121316">Home</text>
-      <text x="125" y="32" font-size="14" font-weight="500" fill="#667085">Features</text>
-      <text x="215" y="32" font-size="14" font-weight="500" fill="#667085">For clinics</text>
-      <text x="315" y="32" font-size="14" font-weight="500" fill="#667085">For patients</text>
-      <text x="430" y="32" font-size="14" font-weight="500" fill="#667085">Contact</text>
+    <g id="Center-Nav-Pill" transform="translate(540, 0)" filter="url(#shadow-pill)">
+      <rect width="520" height="52" rx="26" fill="#FFFFFF" fill-opacity="0.95" stroke="#0D6E65" stroke-opacity="0.1" stroke-width="1"/>
+      <text x="45" y="32" font-size="14" font-weight="600" fill="#0D6E65">Home</text>
+      <text x="125" y="32" font-size="14" font-weight="500" fill="#5A6B67">Features</text>
+      <text x="215" y="32" font-size="14" font-weight="500" fill="#5A6B67">For clinics</text>
+      <text x="315" y="32" font-size="14" font-weight="500" fill="#5A6B67">For patients</text>
+      <text x="430" y="32" font-size="14" font-weight="500" fill="#5A6B67">Contact</text>
     </g>
 
     <!-- Right Action Button -->
-    <g id="Nav-Right-Actions" transform="translate(1360, 0)">
-      <rect width="150" height="52" rx="26" fill="#121316"/>
-      <text x="75" y="32" font-size="14" font-weight="600" fill="#FFFFFF" text-anchor="middle">Kembali</text>
+    <g id="Nav-Right-Actions" transform="translate(1380, 0)">
+      <rect width="140" height="52" rx="26" fill="#0D6E65"/>
+      <text x="70" y="32" font-size="14" font-weight="600" fill="#FFFFFF" text-anchor="middle">Kembali</text>
     </g>
   </g>
 
@@ -89,103 +90,103 @@
   <!-- LEFT COLUMN: LOGIN CARD -->
   <g id="Login-Card-Section" transform="translate(160, 150)">
     <!-- Card Container -->
-    <rect width="700" height="850" rx="36" fill="#FFFFFF" stroke="#000000" stroke-opacity="0.06" stroke-width="1.5" filter="url(#shadow-card)"/>
+    <rect width="700" height="850" rx="36" fill="#FFFFFF" stroke="#0D6E65" stroke-opacity="0.08" stroke-width="1.5" filter="url(#shadow-card)"/>
 
     <!-- Inner Content Area -->
     <g transform="translate(64, 56)">
       <!-- Badge / Pill -->
       <g id="Secure-Badge">
-        <rect width="180" height="34" rx="17" fill="#FFEFEA"/>
-        <circle cx="20" cy="17" r="5" fill="#FF6F59"/>
-        <text x="36" y="22" font-size="12" font-weight="700" fill="#FF5238" letter-spacing="0.3">MEDICARE ACCESS</text>
+        <rect width="190" height="34" rx="17" fill="#E8F4F2"/>
+        <circle cx="20" cy="17" r="5" fill="#0D6E65"/>
+        <text x="36" y="22" font-size="12" font-weight="700" fill="#0D6E65" letter-spacing="0.3">MEDICARE ACCESS</text>
       </g>
 
       <!-- Main Heading & Subtitle -->
-      <text x="0" y="86" font-size="34" font-weight="800" fill="#121316" letter-spacing="-0.8">Selamat Datang Kembali</text>
-      <text x="0" y="118" font-size="15" font-weight="400" fill="#667085">Masuk ke akun Medicare Anda untuk konsultasi dokter &amp; resep digital.</text>
+      <text x="0" y="86" font-size="34" font-weight="800" fill="#112320" letter-spacing="-0.8">Selamat Datang Kembali</text>
+      <text x="0" y="118" font-size="15" font-weight="400" fill="#5A6B67">Masuk ke portal konsultasi dokter, resep digital, &amp; rekam medis Anda.</text>
 
       <!-- Role Selector Tabs -->
       <g id="Role-Selector-Tabs" transform="translate(0, 150)">
-        <rect width="572" height="52" rx="26" fill="#F4F4F6"/>
+        <rect width="572" height="52" rx="26" fill="#F4F8F7"/>
         <!-- Active Tab: Pasien -->
         <rect x="4" y="4" width="280" height="44" rx="22" fill="#FFFFFF" filter="url(#shadow-pill)"/>
-        <text x="144" y="31" font-size="14" font-weight="700" fill="#121316" text-anchor="middle">Pasien / Personal</text>
+        <text x="144" y="31" font-size="14" font-weight="700" fill="#0D6E65" text-anchor="middle">Pasien / Personal</text>
         <!-- Inactive Tab: Dokter / Klinik -->
-        <text x="428" y="31" font-size="14" font-weight="600" fill="#667085" text-anchor="middle">Klinik &amp; Dokter</text>
+        <text x="428" y="31" font-size="14" font-weight="600" fill="#5A6B67" text-anchor="middle">Klinik &amp; Dokter</text>
       </g>
 
       <!-- Form Field 1: Email / No. Rekam Medis -->
       <g id="Input-Email" transform="translate(0, 235)">
-        <text x="0" y="0" font-size="13" font-weight="600" fill="#344054">Email atau Nomor KTP (NIK)</text>
-        <rect y="12" width="572" height="56" rx="18" fill="#FFFFFF" stroke="#E4E7EC" stroke-width="1.5"/>
+        <text x="0" y="0" font-size="13" font-weight="600" fill="#2D3F3C">Email atau Nomor KTP (NIK)</text>
+        <rect y="12" width="572" height="56" rx="18" fill="#FFFFFF" stroke="#D1E7E3" stroke-width="1.5"/>
         <!-- Icon Placeholder -->
-        <circle cx="28" cy="40" r="10" fill="#FFEFEA"/>
-        <text x="28" y="44" font-size="11" font-weight="700" fill="#FF6F59" text-anchor="middle">@</text>
+        <circle cx="28" cy="40" r="10" fill="#E8F4F2"/>
+        <text x="28" y="44" font-size="11" font-weight="700" fill="#0D6E65" text-anchor="middle">@</text>
         <!-- Input Text -->
-        <text x="54" y="45" font-size="15" font-weight="500" fill="#121316">andi.pratama@medicare.id</text>
+        <text x="54" y="45" font-size="15" font-weight="500" fill="#112320">andi.pratama@medicare.id</text>
       </g>
 
       <!-- Form Field 2: Password -->
       <g id="Input-Password" transform="translate(0, 340)">
-        <text x="0" y="0" font-size="13" font-weight="600" fill="#344054">Kata Sandi</text>
-        <rect y="12" width="572" height="56" rx="18" fill="#FFFFFF" stroke="#E4E7EC" stroke-width="1.5"/>
+        <text x="0" y="0" font-size="13" font-weight="600" fill="#2D3F3C">Kata Sandi</text>
+        <rect y="12" width="572" height="56" rx="18" fill="#FFFFFF" stroke="#D1E7E3" stroke-width="1.5"/>
         <!-- Lock Icon Placeholder -->
-        <rect x="20" y="32" width="16" height="16" rx="4" fill="#FFEFEA"/>
+        <rect x="20" y="32" width="16" height="16" rx="4" fill="#E8F4F2"/>
         <!-- Hidden Password Dots -->
-        <text x="54" y="46" font-size="18" font-weight="800" fill="#121316" letter-spacing="4">••••••••••••</text>
+        <text x="54" y="46" font-size="18" font-weight="800" fill="#112320" letter-spacing="4">••••••••••••</text>
         <!-- Show Eye Icon Text -->
-        <text x="536" y="45" font-size="12" font-weight="700" fill="#667085" text-anchor="middle">LIHAT</text>
+        <text x="536" y="45" font-size="12" font-weight="700" fill="#5A6B67" text-anchor="middle">LIHAT</text>
       </g>
 
       <!-- Remember Me & Forgot Password -->
       <g id="Options-Row" transform="translate(0, 442)">
         <!-- Checkbox -->
-        <rect x="0" y="0" width="20" height="20" rx="6" fill="#FF6F59"/>
+        <rect x="0" y="0" width="20" height="20" rx="6" fill="#0D6E65"/>
         <path d="M 5 10 L 8 14 L 15 6" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <text x="30" y="15" font-size="14" font-weight="500" fill="#475467">Ingat saya di perangkat ini</text>
+        <text x="30" y="15" font-size="14" font-weight="500" fill="#3D504C">Ingat saya di perangkat ini</text>
         <!-- Forgot Password Link -->
-        <text x="572" y="15" font-size="14" font-weight="600" fill="#FF5238" text-anchor="end">Lupa kata sandi?</text>
+        <text x="572" y="15" font-size="14" font-weight="600" fill="#0D6E65" text-anchor="end">Lupa kata sandi?</text>
       </g>
 
       <!-- Submit CTA Button -->
-      <g id="Button-Login" transform="translate(0, 495)" filter="url(#shadow-coral)">
-        <rect width="572" height="60" rx="30" fill="url(#coral-gradient)"/>
+      <g id="Button-Login" transform="translate(0, 495)" filter="url(#shadow-green)">
+        <rect width="572" height="60" rx="30" fill="url(#primary-gradient)"/>
         <text x="286" y="36" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">Masuk ke Akun Saya  →</text>
       </g>
 
       <!-- Or Divider -->
       <g id="Divider" transform="translate(0, 595)">
-        <line x1="0" y1="0" x2="240" y2="0" stroke="#E4E7EC" stroke-width="1"/>
-        <text x="286" y="4" font-size="13" font-weight="500" fill="#98A2B3" text-anchor="middle">atau lanjutkan dengan</text>
-        <line x1="332" y1="0" x2="572" y2="0" stroke="#E4E7EC" stroke-width="1"/>
+        <line x1="0" y1="0" x2="240" y2="0" stroke="#E2ECE9" stroke-width="1"/>
+        <text x="286" y="4" font-size="13" font-weight="500" fill="#8DA09C" text-anchor="middle">atau lanjutkan dengan</text>
+        <line x1="332" y1="0" x2="572" y2="0" stroke="#E2ECE9" stroke-width="1"/>
       </g>
 
       <!-- Social Logins (Google & WhatsApp) -->
       <g id="Social-Logins" transform="translate(0, 625)">
         <!-- Google Button -->
-        <rect x="0" y="0" width="276" height="52" rx="26" fill="#FFFFFF" stroke="#E4E7EC" stroke-width="1.2"/>
-        <circle cx="36" cy="26" r="12" fill="#F4F4F6"/>
+        <rect x="0" y="0" width="276" height="52" rx="26" fill="#FFFFFF" stroke="#D1E7E3" stroke-width="1.2"/>
+        <circle cx="36" cy="26" r="12" fill="#F4F8F7"/>
         <text x="36" y="31" font-size="12" font-weight="800" fill="#EA4335" text-anchor="middle">G</text>
-        <text x="148" y="32" font-size="14" font-weight="600" fill="#344054" text-anchor="middle">Akun Google</text>
+        <text x="148" y="32" font-size="14" font-weight="600" fill="#2D3F3C" text-anchor="middle">Akun Google</text>
 
         <!-- WhatsApp OTP Button -->
-        <rect x="296" y="0" width="276" height="52" rx="26" fill="#FFFFFF" stroke="#E4E7EC" stroke-width="1.2"/>
-        <circle cx="332" cy="26" r="12" fill="#E8F5E9"/>
-        <text x="332" y="31" font-size="11" font-weight="800" fill="#2E7D32" text-anchor="middle">WA</text>
-        <text x="444" y="32" font-size="14" font-weight="600" fill="#344054" text-anchor="middle">OTP WhatsApp</text>
+        <rect x="296" y="0" width="276" height="52" rx="26" fill="#FFFFFF" stroke="#D1E7E3" stroke-width="1.2"/>
+        <circle cx="332" cy="26" r="12" fill="#E8F4F2"/>
+        <text x="332" y="31" font-size="11" font-weight="800" fill="#0D6E65" text-anchor="middle">WA</text>
+        <text x="444" y="32" font-size="14" font-weight="600" fill="#2D3F3C" text-anchor="middle">OTP WhatsApp</text>
       </g>
 
       <!-- Sign Up Prompt -->
       <g id="Register-Prompt" transform="translate(0, 715)">
-        <text x="286" y="0" font-size="14" font-weight="500" fill="#667085" text-anchor="middle">
-          Belum memiliki akun Medicare? <tspan font-weight="700" fill="#FF5238">Daftar Pasien Baru</tspan>
+        <text x="286" y="0" font-size="14" font-weight="500" fill="#5A6B67" text-anchor="middle">
+          Belum memiliki akun Medicare? <tspan font-weight="700" fill="#0D6E65">Daftar Pasien Baru</tspan>
         </text>
       </g>
 
       <!-- Trust & Compliance Note -->
       <g id="Security-Footer" transform="translate(0, 745)">
-        <rect x="60" y="0" width="452" height="32" rx="16" fill="#F9FAFB"/>
-        <text x="286" y="20" font-size="11.5" font-weight="500" fill="#667085" text-anchor="middle">
+        <rect x="60" y="0" width="452" height="32" rx="16" fill="#F4FAF8"/>
+        <text x="286" y="20" font-size="11.5" font-weight="500" fill="#5A6B67" text-anchor="middle">
           🔒 Enkripsi Rekam Medis 256-bit • Terverifikasi Standar Kemenkes RI
         </text>
       </g>
@@ -199,132 +200,134 @@
     <g id="Showcase-Heading" transform="translate(40, 30)">
       <!-- Rating pill -->
       <g id="Rating-Pill" filter="url(#shadow-pill)">
-        <rect width="280" height="40" rx="20" fill="#FFFFFF" stroke="#000000" stroke-opacity="0.06"/>
+        <rect width="280" height="40" rx="20" fill="#FFFFFF" stroke="#0D6E65" stroke-opacity="0.1"/>
         <!-- Avatars mini dots -->
-        <circle cx="22" cy="20" r="12" fill="#FF7560"/>
-        <circle cx="40" cy="20" r="12" fill="#6366F1"/>
-        <circle cx="58" cy="20" r="12" fill="#10B981"/>
-        <text x="82" y="25" font-size="12" font-weight="700" fill="#121316">4.9/5</text>
+        <circle cx="22" cy="20" r="12" fill="#0D6E65"/>
+        <circle cx="40" cy="20" r="12" fill="#144B44"/>
+        <circle cx="58" cy="20" r="12" fill="#278C80"/>
+        <text x="82" y="25" font-size="12" font-weight="700" fill="#112320">4.9/5</text>
         <text x="120" y="24" font-size="12" fill="#F59E0B">★★★★★</text>
-        <text x="175" y="25" font-size="11" font-weight="500" fill="#667085">Loved by 100K</text>
+        <text x="175" y="25" font-size="11" font-weight="500" fill="#5A6B67">Loved by 100K</text>
       </g>
 
       <!-- Big Typography Header -->
-      <text x="0" y="105" font-size="46" font-weight="800" fill="#121316" letter-spacing="-1.5">
+      <text x="0" y="105" font-size="46" font-weight="800" fill="#112320" letter-spacing="-1.5">
         Care that starts with
       </text>
-      <text x="0" y="160" font-size="46" font-weight="800" fill="#121316" letter-spacing="-1.5">
-        simplicity and trust.
+      <text x="0" y="160" font-size="46" font-weight="800" fill="#112320" letter-spacing="-1.5">
+        <tspan fill="#0D6E65">simplicity</tspan> and trust.
       </text>
-      <text x="0" y="205" font-size="17" font-weight="400" fill="#667085" width="550">
-        Konsultasi instan dengan dokter spesialis AI, rekam medis terpadu,
+      <text x="0" y="205" font-size="17" font-weight="400" fill="#5A6B67">
+        Konsultasi instan dengan dokter spesialis, rekam medis terpadu,
       </text>
-      <text x="0" y="230" font-size="17" font-weight="400" fill="#667085" width="550">
+      <text x="0" y="230" font-size="17" font-weight="400" fill="#5A6B67">
         dan resep obat resmi yang siap ditebus dalam hitungan menit.
       </text>
     </g>
 
-    <!-- WIDGET 1: PRIMARY ORANGE CONSULTATION CARD (ANNA COOPER / DR. FARAH) -->
-    <g id="Widget-Consultation-Card" transform="translate(90, 320)" filter="url(#shadow-coral)">
-      <rect width="460" height="150" rx="28" fill="url(#card-orange-gradient)"/>
+    <!-- WIDGET 1: PRIMARY DEEP GREEN DOCTOR CONSULTATION CARD -->
+    <g id="Widget-Consultation-Card" transform="translate(90, 320)" filter="url(#shadow-green)">
+      <rect width="460" height="150" rx="28" fill="url(#card-green-gradient)"/>
       
-      <!-- Doctor / Patient Header -->
-      <text x="32" y="44" font-size="20" font-weight="700" fill="#FFFFFF">dr. Farah, Sp.P</text>
+      <!-- Doctor Header -->
+      <circle cx="52" cy="40" r="18" fill="#FFFFFF" fill-opacity="0.2"/>
+      <text x="52" y="46" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle">DR</text>
+
+      <text x="82" y="44" font-size="20" font-weight="700" fill="#FFFFFF">dr. Farah, Sp.P</text>
       
       <!-- Live Tag -->
-      <rect x="180" y="26" width="96" height="24" rx="12" fill="#FFFFFF" fill-opacity="0.22"/>
-      <circle cx="192" cy="38" r="4" fill="#FFFFFF"/>
-      <text x="204" y="42" font-size="11" font-weight="700" fill="#FFFFFF">Aktif Sekarang</text>
+      <rect x="236" y="26" width="160" height="24" rx="12" fill="#FFFFFF" fill-opacity="0.22"/>
+      <circle cx="248" cy="38" r="4" fill="#A7F3D0"/>
+      <text x="258" y="42" font-size="11" font-weight="700" fill="#FFFFFF">Tersedia untuk konsultasi</text>
       
       <!-- Arrow icon button -->
       <circle cx="420" cy="38" r="16" fill="#FFFFFF" fill-opacity="0.25"/>
       <text x="420" y="43" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">↗</text>
 
       <!-- Subtitle -->
-      <text x="32" y="74" font-size="14" font-weight="400" fill="#FFFFFF" fill-opacity="0.9">Spesialis Pulmonologi &amp; Respirasi</text>
+      <text x="82" y="74" font-size="14" font-weight="400" fill="#FFFFFF" fill-opacity="0.9">Spesialis Pulmonologi &amp; Respirasi</text>
 
       <!-- Divider line -->
       <line x1="32" y1="96" x2="428" y2="96" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="1"/>
 
       <!-- Footer Info -->
-      <text x="32" y="126" font-size="13" font-weight="500" fill="#FFFFFF">🕒 10:00 - 11:00 WIB</text>
-      <text x="240" y="126" font-size="13" font-weight="500" fill="#FFFFFF">🗓️ Sesi Konsultasi #MC-0812</text>
+      <text x="32" y="126" font-size="13" font-weight="500" fill="#FFFFFF">🕒 09:00 - 12:00 WIB</text>
+      <text x="240" y="126" font-size="13" font-weight="500" fill="#FFFFFF">✓ Terverifikasi oleh Admin</text>
       <circle cx="420" cy="122" r="12" fill="#FFFFFF" fill-opacity="0.25"/>
-      <text x="420" y="126" font-size="11" fill="#FFFFFF" text-anchor="middle">🎥</text>
+      <text x="420" y="126" font-size="11" fill="#FFFFFF" text-anchor="middle">💬</text>
     </g>
 
-    <!-- WIDGET 2: MOOD TRACKING WIDGET (TOP RIGHT) -->
+    <!-- WIDGET 2: STATUS & MOOD TRACKING WIDGET (TOP RIGHT) -->
     <g id="Widget-Mood-Tracking" transform="translate(360, 160)" filter="url(#shadow-card)">
-      <rect width="280" height="110" rx="24" fill="#FFFFFF" stroke="#000000" stroke-opacity="0.06"/>
-      <text x="24" y="34" font-size="13" font-weight="700" fill="#121316">Mood Tracking</text>
+      <rect width="280" height="110" rx="24" fill="#FFFFFF" stroke="#0D6E65" stroke-opacity="0.08"/>
+      <text x="24" y="34" font-size="13" font-weight="700" fill="#112320">Status Konsultasi</text>
       
       <!-- Status pill -->
-      <rect x="185" y="18" width="75" height="24" rx="12" fill="#FFEFEA"/>
-      <text x="222" y="34" font-size="11" font-weight="700" fill="#FF5238" text-anchor="middle">Good 😊</text>
+      <rect x="180" y="18" width="80" height="24" rx="12" fill="#E8F4F2"/>
+      <text x="220" y="34" font-size="11" font-weight="700" fill="#0D6E65" text-anchor="middle">Selesai ✓</text>
 
       <!-- Mood bar -->
       <rect x="24" y="58" width="232" height="6" rx="3" fill="url(#mood-gradient)"/>
-      <circle cx="200" cy="61" r="7" fill="#121316" stroke="#FFFFFF" stroke-width="2"/>
+      <circle cx="210" cy="61" r="7" fill="#0D6E65" stroke="#FFFFFF" stroke-width="2"/>
 
       <!-- Mood scale text -->
-      <text x="24" y="86" font-size="10" font-weight="500" fill="#98A2B3">Terrible</text>
-      <text x="80" y="86" font-size="10" font-weight="500" fill="#98A2B3">Bad</text>
-      <text x="135" y="86" font-size="10" font-weight="500" fill="#98A2B3">Okay</text>
-      <text x="185" y="86" font-size="10" font-weight="700" fill="#FF5238">Good</text>
-      <text x="235" y="86" font-size="10" font-weight="500" fill="#98A2B3">Great</text>
+      <text x="24" y="86" font-size="10" font-weight="500" fill="#8DA09C">Menunggu</text>
+      <text x="110" y="86" font-size="10" font-weight="500" fill="#8DA09C">Triage</text>
+      <text x="200" y="86" font-size="10" font-weight="700" fill="#0D6E65">Aktif</text>
+      <text x="240" y="86" font-size="10" font-weight="500" fill="#8DA09C">Resep</text>
     </g>
 
     <!-- WIDGET 3: 1,250 APPOINTMENTS (TOP LEFT) -->
     <g id="Widget-Appointments" transform="translate(20, 240)" filter="url(#shadow-card)">
-      <rect width="180" height="96" rx="22" fill="#FFFFFF" stroke="#000000" stroke-opacity="0.06"/>
-      <text x="20" y="40" font-size="24" font-weight="800" fill="#121316">1,250</text>
-      <text x="20" y="60" font-size="12" font-weight="500" fill="#667085">Appointments</text>
-      <text x="20" y="80" font-size="11" font-weight="700" fill="#10B981">↗ 5.8% from last week</text>
+      <rect width="180" height="96" rx="22" fill="#FFFFFF" stroke="#0D6E65" stroke-opacity="0.08"/>
+      <text x="20" y="40" font-size="24" font-weight="800" fill="#112320">1,250</text>
+      <text x="20" y="60" font-size="12" font-weight="500" fill="#5A6B67">Sesi Konsultasi</text>
+      <text x="20" y="80" font-size="11" font-weight="700" fill="#0D6E65">↗ 5.8% minggu ini</text>
     </g>
 
     <!-- WIDGET 4: 1,002 CALL CONSULTANCY (BOTTOM LEFT) -->
     <g id="Widget-Call-Consultancy" transform="translate(30, 520)" filter="url(#shadow-card)">
-      <rect width="190" height="96" rx="22" fill="#FFFFFF" stroke="#000000" stroke-opacity="0.06"/>
+      <rect width="190" height="96" rx="22" fill="#FFFFFF" stroke="#0D6E65" stroke-opacity="0.08"/>
       <!-- Call icon -->
-      <circle cx="36" cy="34" r="12" fill="#FFEFEA"/>
-      <text x="36" y="38" font-size="11" fill="#FF6F59" text-anchor="middle">📞</text>
+      <circle cx="36" cy="34" r="12" fill="#E8F4F2"/>
+      <text x="36" y="38" font-size="11" fill="#0D6E65" text-anchor="middle">📞</text>
       
-      <text x="56" y="38" font-size="20" font-weight="800" fill="#121316">1,002</text>
-      <text x="20" y="60" font-size="12" font-weight="500" fill="#667085">Call Consultancy</text>
-      <text x="20" y="80" font-size="11" font-weight="700" fill="#10B981">↗ 40% from last week</text>
+      <text x="56" y="38" font-size="20" font-weight="800" fill="#112320">1,002</text>
+      <text x="20" y="60" font-size="12" font-weight="500" fill="#5A6B67">Pasien Terlayani</text>
+      <text x="20" y="80" font-size="11" font-weight="700" fill="#0D6E65">↗ 40% dari minggu lalu</text>
     </g>
 
     <!-- WIDGET 5: E-RESEP OFFICIAL PDF BADGE (BOTTOM RIGHT) -->
     <g id="Widget-Prescription-Card" transform="translate(280, 500)" filter="url(#shadow-card)">
-      <rect width="360" height="150" rx="26" fill="#FFFFFF" stroke="#000000" stroke-opacity="0.06"/>
+      <rect width="360" height="150" rx="26" fill="#FFFFFF" stroke="#0D6E65" stroke-opacity="0.08"/>
       
       <!-- Icon & Rx Tag -->
-      <rect x="24" y="22" width="40" height="40" rx="12" fill="#FFEFEA"/>
-      <text x="44" y="47" font-size="18" font-weight="800" fill="#FF5238" text-anchor="middle">Rx</text>
+      <rect x="24" y="22" width="40" height="40" rx="12" fill="#E8F4F2"/>
+      <text x="44" y="47" font-size="18" font-weight="800" fill="#0D6E65" text-anchor="middle">Rx</text>
 
-      <text x="76" y="38" font-size="15" font-weight="700" fill="#121316">E-Resep Digital Resmi</text>
-      <text x="76" y="54" font-size="12" font-weight="500" fill="#667085">No: RX-20261005-0812</text>
+      <text x="76" y="38" font-size="15" font-weight="700" fill="#112320">E-Resep Digital Resmi</text>
+      <text x="76" y="54" font-size="12" font-weight="500" fill="#5A6B67">No: RX-20261005-0812</text>
 
       <!-- Prescription Pills Preview -->
-      <rect x="24" y="74" width="312" height="26" rx="8" fill="#F8FAFC"/>
-      <text x="34" y="91" font-size="11.5" font-weight="600" fill="#334155">Ambroxol Sirup 30mg + Vit C 500mg</text>
+      <rect x="24" y="74" width="312" height="26" rx="8" fill="#F4FAF8"/>
+      <text x="34" y="91" font-size="11.5" font-weight="600" fill="#2D3F3C">Ambroxol Sirup 30mg + Vit C 500mg</text>
 
       <!-- QR & Verified status -->
-      <text x="24" y="125" font-size="11.5" font-weight="600" fill="#10B981">✓ QR Code Sah Kemenkes</text>
-      <rect x="220" y="108" width="116" height="28" rx="14" fill="#121316"/>
+      <text x="24" y="125" font-size="11.5" font-weight="600" fill="#0D6E65">✓ QR Code Sah Kemenkes</text>
+      <rect x="220" y="108" width="116" height="28" rx="14" fill="#0D6E65"/>
       <text x="278" y="126" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">Siap Cetak PDF</text>
     </g>
 
     <!-- WIDGET 6: PATIENT VISITS GRAPH (FAR BOTTOM RIGHT) -->
     <g id="Widget-Visits-Chart" transform="translate(360, 680)" filter="url(#shadow-card)">
-      <rect width="280" height="90" rx="20" fill="#FFFFFF" stroke="#000000" stroke-opacity="0.06"/>
-      <text x="20" y="28" font-size="12" font-weight="700" fill="#121316">Patients visits</text>
-      <text x="180" y="27" font-size="10" font-weight="500" fill="#6366F1">• Male</text>
-      <text x="225" y="27" font-size="10" font-weight="500" fill="#EC4899">• Female</text>
+      <rect width="280" height="90" rx="20" fill="#FFFFFF" stroke="#0D6E65" stroke-opacity="0.08"/>
+      <text x="20" y="28" font-size="12" font-weight="700" fill="#112320">Statistik Antrean</text>
+      <text x="170" y="27" font-size="10" font-weight="500" fill="#0D6E65">• Menunggu</text>
+      <text x="235" y="27" font-size="10" font-weight="500" fill="#144B44">• Selesai</text>
       
       <!-- Wave lines -->
-      <path d="M 30 65 Q 80 40 140 60 T 250 50" fill="none" stroke="#6366F1" stroke-width="2.5" stroke-linecap="round"/>
-      <path d="M 30 50 Q 90 70 150 45 T 250 62" fill="none" stroke="#EC4899" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M 30 65 Q 80 40 140 60 T 250 50" fill="none" stroke="#0D6E65" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M 30 50 Q 90 70 150 45 T 250 62" fill="none" stroke="#34D399" stroke-width="2.5" stroke-linecap="round"/>
     </g>
 
   </g>

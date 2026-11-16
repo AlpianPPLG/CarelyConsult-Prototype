@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicare Consult — Layanan Kesehatan Digital, Lebih Mudah dan Terpercaya</title>
+    <meta name="description"
+        content="Hubungkan diri Anda dengan dokter profesional untuk mendapatkan layanan konsultasi kesehatan kapan saja dan di mana saja.">
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Configuration matching Medicare Consult Dark Green Palette -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        carely: {
+                            primary: '#0D6E65',
+                            'primary-hover': '#09544D',
+                            'primary-dark': '#063D38',
+                            'primary-light': '#E8F4F2',
+                            mint: '#D1ECE6',
+                            dark: '#112320',
+                            surface: '#FFFFFF',
+                            muted: '#5A6B67',
+                            border: 'rgba(13, 110, 101, 0.08)',
+                        }
+                    },
+                    boxShadow: {
+                        'glow-green': '0 20px 45px -12px rgba(13, 110, 101, 0.35)',
+                        'float-card': '0 16px 36px -10px rgba(17, 35, 32, 0.08), 0 2px 8px -1px rgba(0,0,0,0.03)',
+                        'soft-card': '0 12px 30px -8px rgba(0, 0, 0, 0.05)',
+                    },
+                    animation: {
+                        'float-slow': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 7s ease-in-out 2s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth arch masking */
+        .doctor-arch {
+            border-top-left-radius: 9999px;
+            border-top-right-radius: 9999px;
+        }
+
+        /* Subtle grid background */
+        .bg-subtle-grid {
+            background-size: 52px 52px;
+            background-image:
+                linear-gradient(to right, rgba(13, 110, 101, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(13, 110, 101, 0.03) 1px, transparent 1px);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-900 font-sans antialiased selection:bg-[#D1ECE6] selection:text-[#0D6E65] overflow-x-hidden">
+
+    <!-- ========================================================================= -->
+    <!-- 01. NAVIGATION BAR -->
+    <!-- ========================================================================= -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-all duration-300" id="main-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
+            
+            <!-- Brand Logo: [+] Medicare Consult -->
+            <a href="index.html" class="flex items-center gap-2.5 focus:outline-none group">
+                <div class="w-8 h-8 rounded-lg bg-[#0D6E65] text-white flex items-center justify-center font-bold text-lg shadow-sm group-hover:bg-[#09544D] transition">
+                    +
+                </div>
+                <span class="tracking-tight text-xl font-bold text-[#112320]">
+                    Medicare Consult
+                </span>
+            </a>
+
+            <!-- Center Navigation Links (Desktop) -->
+            <nav class="hidden lg:flex items-center space-x-8 text-[14.5px] font-medium text-gray-600">
+                <a href="#beranda" class="text-[#0D6E65] font-semibold transition hover:text-[#09544D]">Beranda</a>
+                <a href="#fitur" class="hover:text-[#0D6E65] transition">Fitur</a>
+                <a href="#proses" class="hover:text-[#0D6E65] transition">Untuk Dokter</a>
+                <a href="#fitur" class="hover:text-[#0D6E65] transition">Untuk Pasien</a>
+                <a href="#harga" class="hover:text-[#0D6E65] transition">Harga</a>
+                <a href="#kontak" class="hover:text-[#0D6E65] transition">Kontak</a>
+            </nav>
+
+            <!-- Right Actions: Masuk & Daftar -->
+            <div class="hidden md:flex items-center space-x-6">
+                <!-- Tombol Masuk yang mengarah ke login.html -->
+                <a href="login.html"
+                    class="text-[14.5px] font-medium text-gray-700 hover:text-[#0D6E65] transition">
+                    Masuk
+                </a>
+                <a href="#harga"
+                    class="px-6 py-2.5 text-sm font-semibold text-white bg-[#0D6E65] hover:bg-[#09544D] rounded-xl shadow-sm hover:shadow-md transition-all transform active:scale-95">
+                    Daftar
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn"
+                class="lg:hidden p-2 rounded-xl text-gray-700 hover:text-[#0D6E65] hover:bg-gray-100 focus:outline-none"
+                aria-label="Toggle Navigation Menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-white border-b border-gray-100 px-6 py-5 space-y-4 shadow-lg">
+            <nav class="flex flex-col space-y-3 font-medium text-gray-700 text-sm">
+                <a href="#beranda" class="text-[#0D6E65] font-semibold py-1">Beranda</a>
+                <a href="#fitur" class="hover:text-[#0D6E65] py-1">Fitur</a>
+                <a href="#proses" class="hover:text-[#0D6E65] py-1">Untuk Dokter</a>
+                <a href="#fitur" class="hover:text-[#0D6E65] py-1">Untuk Pasien</a>
+                <a href="#harga" class="hover:text-[#0D6E65] py-1">Harga</a>
+                <a href="#kontak" class="hover:text-[#0D6E65] py-1">Kontak</a>
+            </nav>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                <a href="login.html" class="text-sm font-semibold text-gray-700 hover:text-[#0D6E65]">Masuk</a>
+                <a href="#harga" class="px-5 py-2 text-sm font-semibold text-white bg-[#0D6E65] hover:bg-[#09544D] rounded-xl">Daftar</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================================================= -->
+    <!-- 02. HERO SECTION -->
+    <!-- ========================================================================= -->
+    <section id="beranda" class="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-subtle-grid">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+                <!-- Left Column: Hero Text Content -->
+                <div class="lg:col-span-6 space-y-6">
+                    
+                    <!-- Trust Badge Pill -->
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E8F4F2] text-[#0D6E65] text-xs font-semibold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#0D6E65]"></span>
+                        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                        <span>Platform kesehatan digital terpercaya</span>
+                    </div>
+
+                    <!-- Main H1 Heading -->
+                    <h1 class="text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-[#0D6E65] tracking-tight leading-[1.15]">
+                        Layanan Kesehatan <br>
+                        Digital, Lebih Mudah <br>
+                        dan Terpercaya
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p class="text-base sm:text-lg text-gray-600 leading-relaxed max-w-xl">
+                        Hubungkan diri Anda dengan dokter profesional untuk mendapatkan layanan konsultasi kesehatan kapan saja dan di mana saja.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="login.html"
+                            class="inline-flex items-center gap-2 px-7 py-3.5 bg-[#0D6E65] hover:bg-[#09544D] text-white text-sm font-semibold rounded-xl shadow-glow-green hover:shadow-lg transition-all transform active:scale-95">
+                            <span>Mulai Konsultasi</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#fitur"
+                            class="px-7 py-3.5 bg-white hover:bg-gray-50 border border-gray-200 text-gray-800 text-sm font-semibold rounded-xl transition shadow-sm hover:shadow active:scale-95">
+                            Pelajari Lebih Lanjut
+                        </a>
+                    </div>
+
+                    <!-- Social Proof / Patient Ratings -->
+                    <div class="flex items-center gap-3 pt-4">
+                        <div class="flex -space-x-2">
+                            <img src="assets/avatar1.jpg" alt="Pasien Medicare" class="w-9 h-9 rounded-full border-2 border-white object-cover">
+                            <img src="assets/avatar2.jpg" alt="Pasien Medicare" class="w-9 h-9 rounded-full border-2 border-white object-cover">
+                            <img src="assets/avatar3.jpg" alt="Pasien Medicare" class="w-9 h-9 rounded-full border-2 border-white object-cover">
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5">
+                                <div class="flex text-amber-400 text-xs">★★★★★</div>
+                                <span class="text-xs font-bold text-gray-900">4.9</span>
+                            </div>
+                            <p class="text-[11px] text-gray-500 font-medium">Dipercaya 12.000+ pasien</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Doctor Hero Portrait & Floating Cards -->
+                <div class="lg:col-span-6 relative flex items-center justify-center">
+                    
+                    <!-- Arch Frame for Doctor -->
+                    <div class="relative w-[340px] sm:w-[420px] h-[460px] sm:h-[520px] bg-[#EAF4F1] doctor-arch overflow-hidden flex items-end justify-center shadow-inner">
+                        
+                        <!-- Doctor Image -->
+                        <img id="doctor-hero-img"
+                            src="assets/doctor-hero.jpg"
+                            onerror="this.onerror=null; this.src='assets/patient.jpg';"
+                            alt="Dokter Profesional Medicare Consult"
+                            class="w-full h-full object-cover object-top doctor-arch">
+                        
+                    </div>
+
+                    <!-- Floating Card 1: Top Right "Konsultasi Online" -->
+                    <div class="absolute -top-3 right-0 sm:right-6 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-float-card border border-gray-100 flex items-center gap-3 animate-float-delayed z-20">
+                        <div class="w-10 h-10 rounded-xl bg-[#E8F4F2] text-[#0D6E65] flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="video" class="w-5 h-5"></i>
+                        </div>
+                        <div class="pr-2">
+                            <div class="flex items-center gap-1.5">
+                                <span class="text-xs font-bold text-gray-900">Konsultasi Online</span>
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            </div>
+                            <p class="text-[11px] text-gray-500">Terhubung dengan dokter</p>
+                        </div>
+                    </div>
+
+                    <!-- Floating Card 2: Left Middle "Jadwal Berikutnya" -->
+                    <div class="absolute bottom-20 -left-2 sm:-left-8 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-float-card border border-gray-100 flex items-center gap-3 animate-float-slow z-20">
+                        <div class="w-11 h-11 rounded-xl bg-[#0D6E65] text-white flex flex-col items-center justify-center text-center flex-shrink-0">
+                            <span class="text-xs font-extrabold leading-none">24</span>
+                            <span class="text-[9px] font-semibold uppercase tracking-wider mt-0.5">JUN</span>
+                        </div>
+                        <div>
+                            <span class="text-[9px] font-bold text-gray-400 tracking-wider uppercase block">JADWAL BERIKUTNYA</span>
+                            <div class="text-xs font-extrabold text-gray-900 leading-tight">14.30 WIB</div>
+                            <p class="text-[11px] text-[#0D6E65] font-semibold">dr. Nabila Azzahra</p>
+                        </div>
+                    </div>
+
+                    <!-- Floating Card 3: Bottom Right "12K+ Pasien Terbantu" -->
+                    <div class="absolute -bottom-4 right-4 sm:right-12 bg-white/95 backdrop-blur-md rounded-2xl px-5 py-3 shadow-float-card border border-gray-100 animate-float-delayed z-20">
+                        <div class="text-xl font-extrabold text-[#112320]">12K+</div>
+                        <p class="text-[11px] text-gray-500 font-medium">Pasien terbantu</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 03. PARTNER / SUPPORTED LOGOS STRIP -->
+    <!-- ========================================================================= -->
+    <div class="w-full py-8 border-y border-gray-100 bg-[#FCFDFC]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <span class="text-xs font-medium text-gray-400">Terdaftar dan didukung oleh</span>
+            <div class="flex flex-wrap items-center justify-center gap-8 md:gap-14 text-sm font-bold tracking-wide">
+                <span class="text-[#0D6E65]/70 hover:text-[#0D6E65] transition tracking-widest text-base font-extrabold">MEDIKA</span>
+                <span class="text-gray-500 hover:text-[#0D6E65] transition font-bold text-base">SehatQ<span class="text-[#0D6E65]">+</span></span>
+                <span class="text-[#112320]/80 hover:text-[#0D6E65] transition font-extrabold text-base">Klinik<span class="text-[#0D6E65]">Ku</span></span>
+                <span class="text-gray-400 hover:text-[#0D6E65] transition font-extrabold tracking-tight text-base lowercase">halodoc</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- 04. PROSES SEDERHANA (3 LANGKAH) -->
+    <!-- ========================================================================= -->
+    <section id="proses" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold text-[#0D6E65] tracking-widest uppercase block mb-3">
+                    PROSES SEDERHANA
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#112320] tracking-tight">
+                    Kesehatan lebih dekat dalam tiga langkah
+                </h2>
+                <p class="text-sm sm:text-base text-gray-500 mt-3 leading-relaxed">
+                    Mulai perjalanan kesehatan Anda dengan proses yang cepat, aman, dan tanpa kerumitan.
+                </p>
+            </div>
+
+            <!-- 3 Steps Grid with Connector -->
+            <div class="relative grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 max-w-5xl mx-auto">
+                
+                <!-- Dotted Connector Line (Desktop) -->
+                <div class="hidden md:block absolute top-10 left-[18%] right-[18%] h-0.5 border-t-2 border-dashed border-gray-200 z-0"></div>
+
+                <!-- Step 1 -->
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="relative mb-5">
+                        <div class="w-20 h-20 rounded-2xl bg-[#E8F4F2] text-[#0D6E65] flex items-center justify-center shadow-sm">
+                            <i data-lucide="user" class="w-8 h-8"></i>
+                        </div>
+                        <span class="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-[#0D6E65] text-white text-[10px] font-bold flex items-center justify-center shadow-sm">
+                            01
+                        </span>
+                    </div>
+                    <h3 class="text-lg font-bold text-[#112320] mb-2">Buat Akun</h3>
+                    <p class="text-xs sm:text-sm text-gray-500 leading-relaxed max-w-xs">
+                        Daftar hanya dalam beberapa menit dan lengkapi informasi kesehatan dasar Anda.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="relative mb-5">
+                        <div class="w-20 h-20 rounded-2xl bg-[#E8F4F2] text-[#0D6E65] flex items-center justify-center shadow-sm">
+                            <i data-lucide="search" class="w-8 h-8"></i>
+                        </div>
+                        <span class="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-[#0D6E65] text-white text-[10px] font-bold flex items-center justify-center shadow-sm">
+                            02
+                        </span>
+                    </div>
+                    <h3 class="text-lg font-bold text-[#112320] mb-2">Pilih Dokter</h3>
+                    <p class="text-xs sm:text-sm text-gray-500 leading-relaxed max-w-xs">
+                        Temukan dokter sesuai spesialisasi, pengalaman, dan jadwal yang Anda inginkan.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="relative mb-5">
+                        <div class="w-20 h-20 rounded-2xl bg-[#E8F4F2] text-[#0D6E65] flex items-center justify-center shadow-sm">
+                            <i data-lucide="message-square" class="w-8 h-8"></i>
+                        </div>
+                        <span class="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-[#0D6E65] text-white text-[10px] font-bold flex items-center justify-center shadow-sm">
+                            03
+                        </span>
+                    </div>
+                    <h3 class="text-lg font-bold text-[#112320] mb-2">Mulai Konsultasi</h3>
+                    <p class="text-xs sm:text-sm text-gray-500 leading-relaxed max-w-xs">
+                        Terhubung langsung melalui chat atau video dengan aman dan nyaman.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 05. FITUR UNGGULAN (4 CARDS) -->
+    <!-- ========================================================================= -->
+    <section id="fitur" class="py-20 bg-[#F9FBFA] border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold text-[#0D6E65] tracking-widest uppercase block mb-3">
+                    FITUR UNGGULAN
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#112320] tracking-tight">
+                    Semua yang Anda butuhkan untuk kesehatan lebih baik
+                </h2>
+                <p class="text-sm sm:text-base text-gray-500 mt-3 leading-relaxed">
+                    Teknologi kesehatan yang dirancang untuk memberikan pengalaman konsultasi terbaik.
+                </p>
+            </div>
+
+            <!-- 4 Features Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-3xl p-7 border border-gray-100 shadow-soft-card hover:shadow-float-card transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-[#E8F4F2] text-[#0D6E65] flex items-center justify-center mb-6">
+                            <i data-lucide="message-square" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-[#112320] mb-2">Konsultasi Online</h3>
+                        <p class="text-xs text-gray-500 leading-relaxed">
+                            Konsultasi melalui chat yang aman dan privat dengan dokter profesional.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-gray-100 flex items-center gap-1.5 text-xs font-semibold text-[#0D6E65]">
+                        <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                        <span>Chat terenkripsi</span>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white rounded-3xl p-7 border border-gray-100 shadow-soft-card hover:shadow-float-card transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-[#E8F4F2] text-[#0D6E65] flex items-center justify-center mb-6">
+                            <i data-lucide="calendar" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-[#112320] mb-2">Jadwal Dokter</h3>
+                        <p class="text-xs text-gray-500 leading-relaxed">
+                            Pilih jadwal konsultasi yang paling sesuai dengan rutinitas Anda.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-gray-100 flex items-center gap-1.5 text-xs font-semibold text-[#0D6E65]">
+                        <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                        <span>Fleksibel 24/7</span>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-3xl p-7 border border-gray-100 shadow-soft-card hover:shadow-float-card transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-[#E8F4F2] text-[#0D6E65] flex items-center justify-center mb-6">
+                            <i data-lucide="video" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-[#112320] mb-2">Pesan Langsung</h3>
+                        <p class="text-xs text-gray-500 leading-relaxed">
+                            Dapatkan respons cepat dari dokter untuk pertanyaan kesehatan Anda.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-gray-100 flex items-center gap-1.5 text-xs font-semibold text-[#0D6E65]">
+                        <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                        <span>Respons real-time</span>
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-white rounded-3xl p-7 border border-gray-100 shadow-soft-card hover:shadow-float-card transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-[#E8F4F2] text-[#0D6E65] flex items-center justify-center mb-6">
+                            <i data-lucide="history" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-[#112320] mb-2">Riwayat Konsultasi</h3>
+                        <p class="text-xs text-gray-500 leading-relaxed">
+                            Akses catatan konsultasi dan rekomendasi dokter kapan saja.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-gray-100 flex items-center gap-1.5 text-xs font-semibold text-[#0D6E65]">
+                        <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                        <span>Tersimpan aman</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 06. PAKET HARGA (PRICING) -->
+    <!-- ========================================================================= -->
+    <section id="harga" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold text-[#0D6E65] tracking-widest uppercase block mb-3">
+                    PAKET HARGA
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#112320] tracking-tight">
+                    Pilih layanan yang sesuai untuk Anda
+                </h2>
+                <p class="text-sm sm:text-base text-gray-500 mt-3 leading-relaxed">
+                    Mulai gratis, tingkatkan kapan saja. Tanpa biaya tersembunyi.
+                </p>
+            </div>
+
+            <!-- 3 Pricing Cards Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-5xl mx-auto items-stretch">
+                
+                <!-- Tier 1: Gratis -->
+                <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-soft-card flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <h3 class="text-xl font-bold text-[#112320] mb-1">Gratis</h3>
+                        <p class="text-xs text-gray-500 mb-6">Untuk kebutuhan dasar</p>
+                        
+                        <div class="flex items-baseline mb-8">
+                            <span class="text-3xl font-extrabold text-[#112320]">Rp0</span>
+                            <span class="text-xs text-gray-400 ml-1">/bulan</span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-xs sm:text-sm text-gray-600">
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-[#0D6E65] flex-shrink-0"></i>
+                                <span>1 konsultasi per bulan</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-[#0D6E65] flex-shrink-0"></i>
+                                <span>Akses dokter umum</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-[#0D6E65] flex-shrink-0"></i>
+                                <span>Riwayat konsultasi</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-8 mt-8 border-t border-gray-100">
+                        <a href="login.html"
+                            class="w-full py-3 px-6 text-center text-sm font-semibold text-gray-800 bg-white hover:bg-gray-50 border border-gray-200 rounded-xl transition shadow-sm block active:scale-95">
+                            Pilih Paket
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tier 2: Premium (HIGHLIGHTED / PALING POPULER) -->
+                <div class="bg-white rounded-3xl p-8 border-2 border-[#0D6E65] shadow-float-card relative flex flex-col justify-between transform lg:-translate-y-2">
+                    
+                    <!-- Top Badge -->
+                    <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2">
+                        <span class="px-4 py-1 rounded-full bg-[#0D6E65] text-white text-[10px] font-extrabold uppercase tracking-wider shadow-sm">
+                            PALING POPULER
+                        </span>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-[#112320] mb-1">Premium</h3>
+                        <p class="text-xs text-gray-500 mb-6">Pilihan terbaik untuk keluarga</p>
+                        
+                        <div class="flex items-baseline mb-8">
+                            <span class="text-3xl font-extrabold text-[#112320]">Rp79.000</span>
+                            <span class="text-xs text-gray-400 ml-1">/bulan</span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-xs sm:text-sm text-gray-600">
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-[#0D6E65] flex-shrink-0"></i>
+                                <span>Konsultasi tanpa batas</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-[#0D6E65] flex-shrink-0"></i>
+                                <span>Dokter umum &amp; spesialis</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-[#0D6E65] flex-shrink-0"></i>
+                                <span>Prioritas respons</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-[#0D6E65] flex-shrink-0"></i>
+                                <span>Riwayat lengkap</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-8 mt-8 border-t border-gray-100">
+                        <a href="login.html"
+                            class="w-full py-3 px-6 text-center text-sm font-semibold text-white bg-[#0D6E65] hover:bg-[#09544D] rounded-xl shadow-glow-green transition block active:scale-95">
+                            Pilih Paket
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tier 3: Profesional -->
+                <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-soft-card flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <h3 class="text-xl font-bold text-[#112320] mb-1">Profesional</h3>
+                        <p class="text-xs text-gray-500 mb-6">Pendampingan menyeluruh</p>
+                        
+                        <div class="flex items-baseline mb-8">
+                            <span class="text-3xl font-extrabold text-[#112320]">Rp149.000</span>
+                            <span class="text-xs text-gray-400 ml-1">/bulan</span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-xs sm:text-sm text-gray-600">
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-[#0D6E65] flex-shrink-0"></i>
+                                <span>Semua fitur Premium</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-[#0D6E65] flex-shrink-0"></i>
+                                <span>Video konsultasi</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-[#0D6E65] flex-shrink-0"></i>
+                                <span>Laporan kesehatan bulanan</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-[#0D6E65] flex-shrink-0"></i>
+                                <span>Dukungan prioritas</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-8 mt-8 border-t border-gray-100">
+                        <a href="login.html"
+                            class="w-full py-3 px-6 text-center text-sm font-semibold text-gray-800 bg-white hover:bg-gray-50 border border-gray-200 rounded-xl transition shadow-sm block active:scale-95">
+                            Pilih Paket
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 07. CTA BANNER (KESEHATAN ANDA, PRIORITAS KAMI) -->
+    <!-- ========================================================================= -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="bg-[#0D6E65] rounded-3xl p-8 sm:p-14 text-white relative overflow-hidden shadow-glow-green">
+                
+                <!-- Background subtle decorative curve -->
+                <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-white/5 rounded-full pointer-events-none"></div>
+                <div class="absolute right-40 -top-20 w-80 h-80 bg-white/5 rounded-full pointer-events-none"></div>
+
+                <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+                    <div class="space-y-3 max-w-xl">
+                        <span class="text-xs font-bold text-[#D1ECE6] uppercase tracking-widest block">
+                            MULAI HARI INI
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                            Kesehatan Anda, prioritas kami.
+                        </h2>
+                        <p class="text-sm sm:text-base text-white/80 leading-relaxed">
+                            Gabung bersama ribuan pengguna yang telah merasakan layanan kesehatan lebih mudah.
+                        </p>
+                    </div>
+
+                    <a href="login.html"
+                        class="inline-flex items-center gap-2 px-8 py-4 bg-white hover:bg-gray-50 text-[#0D6E65] text-sm font-bold rounded-2xl shadow-lg transition-all transform active:scale-95 flex-shrink-0">
+                        <span>Daftar Sekarang</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 08. FOOTER -->
+    <!-- ========================================================================= -->
+    <footer id="kontak" class="bg-[#0A4B44] text-white pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+                
+                <!-- Col 1: Brand & Bio -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-lg bg-white/15 text-white flex items-center justify-center font-bold text-lg shadow-sm">
+                            +
+                        </div>
+                        <span class="tracking-tight text-xl font-bold text-white">
+                            Medicare Consult
+                        </span>
+                    </div>
+                    <p class="text-sm text-white/70 max-w-sm leading-relaxed">
+                        Partner kesehatan digital terpercaya untuk Anda dan keluarga.
+                    </p>
+                    <p class="text-xs text-white/40 pt-4">
+                        &copy; 2025 Medicare Consult. Hak cipta dilindungi undang-undang.
+                    </p>
+                </div>
+
+                <!-- Col 2: Platform Links -->
+                <div class="lg:col-span-2 space-y-3">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">Platform</h4>
+                    <ul class="space-y-2.5 text-xs text-white/70 font-medium">
+                        <li><a href="#fitur" class="hover:text-white transition">Fitur</a></li>
+                        <li><a href="#proses" class="hover:text-white transition">Untuk Dokter</a></li>
+                        <li><a href="#fitur" class="hover:text-white transition">Untuk Pasien</a></li>
+                        <li><a href="#harga" class="hover:text-white transition">Harga</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Bantuan Links -->
+                <div class="lg:col-span-2 space-y-3">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">Bantuan</h4>
+                    <ul class="space-y-2.5 text-xs text-white/70 font-medium">
+                        <li><a href="#" class="hover:text-white transition">Pusat Bantuan</a></li>
+                        <li><a href="#" class="hover:text-white transition">Kebijakan Privasi</a></li>
+                        <li><a href="#" class="hover:text-white transition">Syarat Layanan</a></li>
+                        <li><a href="#" class="hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Hubungi Kami -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">Hubungi Kami</h4>
+                    <ul class="space-y-2.5 text-xs text-white/70 font-medium">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="mail" class="w-3.5 h-3.5 text-white/50"></i>
+                            <a href="mailto:halo@medicareconsult.id" class="hover:text-white transition">halo@medicareconsult.id</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="phone" class="w-3.5 h-3.5 text-white/50"></i>
+                            <a href="tel:+622150841900" class="hover:text-white transition">+62 21 5084 1900</a>
+                        </li>
+                        <li class="flex items-center gap-2 text-white/50 pt-1">
+                            <i data-lucide="clock" class="w-3.5 h-3.5 text-white/50"></i>
+                            <span>Senin–Jumat, 08.00–20.00</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom Bar -->
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-white/50 gap-4">
+                <span>Medicare Consult Telehealth System</span>
+                <div class="flex items-center space-x-6">
+                    <a href="login.html" class="hover:text-white transition">Portal Masuk</a>
+                    <a href="index2.html" class="hover:text-white transition">Versi Eksplorasi (index2)</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- 09. JAVASCRIPT LOGIC -->
+    <!-- ========================================================================= -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
